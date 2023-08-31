@@ -1,1 +1,1 @@
-C:\MAUI\CarLog\CarLog\CarLog.csproj;x64
+C:\Users\charl\Documents\Maui\CarLog\CarLog\CarLog.csproj;x64

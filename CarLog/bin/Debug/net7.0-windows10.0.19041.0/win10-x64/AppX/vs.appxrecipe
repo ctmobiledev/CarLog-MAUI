@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>SURFACE-GO-2</Machine>
+    <Machine>DELLTOWER</Machine>
     <WindowsUser>charl</WindowsUser>
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>78ba5315-bf0f-4e05-994b-5e0ff4105bcf</PackageIdentityName>
     <PackageIdentityPublisher>CN=User Name</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>
     </WindowsSdkPath>
-    <LayoutDir>C:\MAUI\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
+    <LayoutDir>C:\Users\charl\Documents\Maui\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
     <RegisteredManifestChecksum>708693A520BEFD12404A878FFADC6B5117E7258C44E7F31A070F7E876085F2AA</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>78ba5315-bf0f-4e05-994b-5e0ff4105bcf_1.0.0.1_x64__9zz4h110yvjzm</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>78ba5315-bf0f-4e05-994b-5e0ff4105bcf_9zz4h110yvjzm!App</RegisteredUserModeAppID>
@@ -27,32 +27,32 @@
     <RegisteredVersion>1.0.0.1</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\MAUI\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-08-30T23:26:57.557</Modified>
+      <Modified>2023-08-31T05:20:19.539</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-08-30T23:22:48.082</Modified>
+      <Modified>2023-08-31T05:20:19.217</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CarLog.runtimeconfig.json">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CarLog.runtimeconfig.json">
       <PackagePath>CarLog.runtimeconfig.json</PackagePath>
-      <Modified>2023-08-30T22:08:29.101</Modified>
+      <Modified>2023-08-31T05:20:18.910</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CarLog.dll">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CarLog.dll">
       <PackagePath>CarLog.dll</PackagePath>
-      <Modified>2023-08-30T23:26:54.544</Modified>
+      <Modified>2023-08-31T05:20:17.228</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>CarLog.exe</PackagePath>
-      <Modified>2023-08-30T23:26:54.578</Modified>
+      <Modified>2023-08-31T05:20:17.255</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CarLog.deps.json">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CarLog.deps.json">
       <PackagePath>CarLog.deps.json</PackagePath>
-      <Modified>2023-08-30T22:58:10.760</Modified>
+      <Modified>2023-08-31T05:20:18.757</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\charl\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.10\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -934,241 +934,241 @@
       <PackagePath>Microsoft.Maui.pri</PackagePath>
       <Modified>2023-06-30T21:50:38.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\Resources\Raw\AboutAssets.txt">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
-      <Modified>2023-08-30T22:02:49.711</Modified>
+      <Modified>2023-08-31T04:15:52.619</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
-      <Modified>2023-08-30T22:05:34.001</Modified>
+      <Modified>2023-08-31T05:20:16.322</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
       <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
-      <Modified>2023-08-30T22:05:34.106</Modified>
+      <Modified>2023-08-31T05:20:16.337</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
       <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
-      <Modified>2023-08-30T22:05:34.359</Modified>
+      <Modified>2023-08-31T05:20:16.361</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
       <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
-      <Modified>2023-08-30T22:05:34.582</Modified>
+      <Modified>2023-08-31T05:20:16.397</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.324</Modified>
+      <Modified>2023-08-31T05:20:16.531</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
       <PackagePath>OpenSans-Regular.ttf</PackagePath>
-      <Modified>2023-08-30T22:02:49.702</Modified>
+      <Modified>2023-08-31T04:15:52.617</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
       <PackagePath>OpenSans-Semibold.ttf</PackagePath>
-      <Modified>2023-08-30T22:02:49.705</Modified>
+      <Modified>2023-08-31T04:15:52.618</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
-      <Modified>2023-08-30T22:05:35.529</Modified>
+      <Modified>2023-08-31T05:20:16.595</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.693</Modified>
+      <Modified>2023-08-31T05:20:16.885</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.766</Modified>
+      <Modified>2023-08-31T05:20:16.896</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.842</Modified>
+      <Modified>2023-08-31T05:20:16.910</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.938</Modified>
+      <Modified>2023-08-31T05:20:16.926</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
-      <Modified>2023-08-30T22:05:37.339</Modified>
+      <Modified>2023-08-31T05:20:16.996</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.839</Modified>
+      <Modified>2023-08-31T05:20:16.671</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.852</Modified>
+      <Modified>2023-08-31T05:20:16.675</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.924</Modified>
+      <Modified>2023-08-31T05:20:16.690</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.866</Modified>
+      <Modified>2023-08-31T05:20:16.678</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.887</Modified>
+      <Modified>2023-08-31T05:20:16.681</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.752</Modified>
+      <Modified>2023-08-31T05:20:16.652</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.770</Modified>
+      <Modified>2023-08-31T05:20:16.654</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.824</Modified>
+      <Modified>2023-08-31T05:20:16.668</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.780</Modified>
+      <Modified>2023-08-31T05:20:16.658</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.794</Modified>
+      <Modified>2023-08-31T05:20:16.662</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.581</Modified>
+      <Modified>2023-08-31T05:20:16.603</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.597</Modified>
+      <Modified>2023-08-31T05:20:16.607</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.611</Modified>
+      <Modified>2023-08-31T05:20:16.612</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.625</Modified>
+      <Modified>2023-08-31T05:20:16.617</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.648</Modified>
+      <Modified>2023-08-31T05:20:16.623</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.658</Modified>
+      <Modified>2023-08-31T05:20:16.627</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.670</Modified>
+      <Modified>2023-08-31T05:20:16.631</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.744</Modified>
+      <Modified>2023-08-31T05:20:16.645</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.683</Modified>
+      <Modified>2023-08-31T05:20:16.635</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.702</Modified>
+      <Modified>2023-08-31T05:20:16.638</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.134</Modified>
+      <Modified>2023-08-31T05:20:16.740</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.158</Modified>
+      <Modified>2023-08-31T05:20:16.747</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.184</Modified>
+      <Modified>2023-08-31T05:20:16.755</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.232</Modified>
+      <Modified>2023-08-31T05:20:16.764</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.314</Modified>
+      <Modified>2023-08-31T05:20:16.784</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.021</Modified>
+      <Modified>2023-08-31T05:20:16.714</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.037</Modified>
+      <Modified>2023-08-31T05:20:16.717</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.058</Modified>
+      <Modified>2023-08-31T05:20:16.721</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.079</Modified>
+      <Modified>2023-08-31T05:20:16.725</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.117</Modified>
+      <Modified>2023-08-31T05:20:16.734</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.939</Modified>
+      <Modified>2023-08-31T05:20:16.693</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.949</Modified>
+      <Modified>2023-08-31T05:20:16.697</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.965</Modified>
+      <Modified>2023-08-31T05:20:16.701</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.979</Modified>
+      <Modified>2023-08-31T05:20:16.705</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.007</Modified>
+      <Modified>2023-08-31T05:20:16.710</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.342</Modified>
+      <Modified>2023-08-31T05:20:16.791</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.373</Modified>
+      <Modified>2023-08-31T05:20:16.801</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.422</Modified>
+      <Modified>2023-08-31T05:20:16.836</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.482</Modified>
+      <Modified>2023-08-31T05:20:16.847</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.652</Modified>
+      <Modified>2023-08-31T05:20:16.876</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.741</Modified>
+      <Modified>2023-08-31T05:20:16.633</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
       <PackagePath>dotnet_bot.scale-125.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.796</Modified>
+      <Modified>2023-08-31T05:20:16.644</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
       <PackagePath>dotnet_bot.scale-150.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.857</Modified>
+      <Modified>2023-08-31T05:20:16.656</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
       <PackagePath>dotnet_bot.scale-200.png</PackagePath>
-      <Modified>2023-08-30T22:05:35.931</Modified>
+      <Modified>2023-08-31T05:20:16.673</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\MAUI\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\charl\Documents\Maui\CarLog\CarLog\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
-      <Modified>2023-08-30T22:05:36.197</Modified>
+      <Modified>2023-08-31T05:20:16.721</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

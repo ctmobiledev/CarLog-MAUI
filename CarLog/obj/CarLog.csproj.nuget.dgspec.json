@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MAUI\\CarLog\\CarLog\\CarLog.csproj": {}
+    "C:\\Users\\charl\\Documents\\Maui\\CarLog\\CarLog\\CarLog.csproj": {}
   },
   "projects": {
-    "C:\\MAUI\\CarLog\\CarLog\\CarLog.csproj": {
+    "C:\\Users\\charl\\Documents\\Maui\\CarLog\\CarLog\\CarLog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MAUI\\CarLog\\CarLog\\CarLog.csproj",
+        "projectUniqueName": "C:\\Users\\charl\\Documents\\Maui\\CarLog\\CarLog\\CarLog.csproj",
         "projectName": "CarLog",
-        "projectPath": "C:\\MAUI\\CarLog\\CarLog\\CarLog.csproj",
+        "projectPath": "C:\\Users\\charl\\Documents\\Maui\\CarLog\\CarLog\\CarLog.csproj",
         "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
-        "outputPath": "C:\\MAUI\\CarLog\\CarLog\\obj\\",
+        "outputPath": "C:\\Users\\charl\\Documents\\Maui\\CarLog\\CarLog\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
