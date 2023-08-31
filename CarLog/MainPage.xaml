@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="CarLog"
+             BackgroundColor="#3388FF"
+             x:Class="CarLog.MainPage">
+
+
+    <VerticalStackLayout VerticalOptions="Start">
+
+        <Label Text="My Vehicles" FontSize="Large" TextColor="White" Margin="10,0" />
+
+        <CollectionView x:Name="cvVehicles" ItemsSource="{Binding CLRepository.Vehicles}"
+                Margin="10"
+                SelectionMode="Single"
+                SelectionChanged="cvVehicles_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding VID}" TextColor="White" FontSize="Medium" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+
+</ContentPage>

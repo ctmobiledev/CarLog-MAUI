@@ -1,0 +1,1 @@
+C:\MAUI\CarLog\CarLog\CarLog.csproj;x64
