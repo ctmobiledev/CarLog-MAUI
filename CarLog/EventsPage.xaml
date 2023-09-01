@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CarLog.ViewModels"
+             x:Class="CarLog.EventsPage"
+             Title="Events"
+             BackgroundColor="#3388FF">
+
+    <ContentPage.BindingContext>
+        <vm:EventsViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="0,20,0,0">
+
+            <ScrollView>
+
+                <Grid VerticalOptions="FillAndExpand">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Data -->
+
+                    <Label x:Name="lblVehicleName" Grid.Row="0" Text="{Binding VehicleName}"  
+                       FontSize="Large" TextColor="White" Margin="0,0,0,0" HorizontalTextAlignment="Center" />
+
+                    <CollectionView x:Name="cvEvents" Grid.Row="1" 
+                    ItemsSource="{Binding _vehicle.VehicleEvents}"
+                    Margin="10"
+                    SelectionMode="Single">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Data -->
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding EventId}" TextColor="White" FontSize="Medium" HeightRequest="60" VerticalTextAlignment="Center"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding EventTimestamp}" TextColor="White" FontSize="Medium" HeightRequest="60" VerticalTextAlignment="Center"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Text="{Binding EventMileage}" TextColor="White" FontSize="Medium" HeightRequest="60" VerticalTextAlignment="Center"/>
+                                    <Label Grid.Row="3" Grid.Column="0" Text="{Binding EventName}" TextColor="White" FontSize="Medium" HeightRequest="60" VerticalTextAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </Grid>
+
+            </ScrollView>
+
+            <StackLayout Grid.Row="2" HeightRequest="50" Margin="0,0,20,20" HorizontalOptions="End" VerticalOptions="End">
+                <Button x:Name="btnNew" 
+                        Text="New" Clicked="btnNew_Clicked" HeightRequest="50" WidthRequest="100" />
+            </StackLayout>
+
+        </StackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -23,13 +23,34 @@ namespace CarLog
             cvVehicles.ItemsSource = CLRepository.Vehicles;
         }
 
-        private void cvVehicles_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void cvVehicles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             Vehicle v = (Vehicle)e.CurrentSelection.FirstOrDefault();
 
-            DisplayAlert("Test", v.VehicleYear + " " + v.VehicleMaker + " " +
-                v.VehicleModel, "OK");
+            if (v != null)
+            {
+                await DisplayAlert("Test", v.VehicleYear + " " + v.VehicleMaker + " " +
+                    v.VehicleModel, "OK");
+
+                await Navigation.PushAsync(new EventsPage(v));
+
+                cvVehicles.SelectedItem = null;
+            }
+
+        }
+
+        private void btnNew_Clicked(object sender, EventArgs e)
+        {
+
+            DisplayAlert("Test", "New", "OK");
+
+        }
+
+        private void ContentPage_Appearing(object sender, EventArgs e)
+        {
+
+
 
         }
 
