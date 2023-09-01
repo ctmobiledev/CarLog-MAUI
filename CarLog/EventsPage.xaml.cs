@@ -22,6 +22,18 @@ public partial class EventsPage : ContentPage
     {
         cvEvents.ItemsSource = null;
         cvEvents.ItemsSource = _vehicle.VehicleEvents;
+
+        if (_vehicle.VehicleEvents.Count > 0)
+        {
+            lblEmptyMsg.IsVisible = false;
+        }
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        RefreshData();
     }
 
     private async void btnNew_Clicked(object sender, EventArgs e)
@@ -29,8 +41,12 @@ public partial class EventsPage : ContentPage
 
         //await DisplayAlert("Test", "New", "OK");
 
+        await Navigation.PushAsync(new EditVehicleEventPage(_vehicle));
+
         // A call to an add form would precede this, of course.
-        await CLRepository.AddVehicleEventAsync(_vehicle);
+        /////[TEMP] await CLRepository.AddVehicleEventAsync(_vehicle);
+
+        lblEmptyMsg.IsVisible = false;
 
         RefreshData();
 

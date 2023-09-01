@@ -20,7 +20,20 @@ namespace CarLog
         {
             cvVehicles.ItemsSource = null;          
             cvVehicles.ItemsSource = CLRepository.Vehicles;
+
+            if (CLRepository.Vehicles.Count > 0)
+            {
+                lblEmptyMsg.IsVisible = false;
+            }
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            RefreshData();
+        }
+
 
         private async void cvVehicles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -45,11 +58,25 @@ namespace CarLog
 
             //await DisplayAlert("Test", "New", "OK");
 
+            await Navigation.PushAsync(new EditVehiclePage());
+
             // A call to an add form would precede this, of course.
-            await CLRepository.AddVehicleAsync();
+            /////[TEMP] await CLRepository.AddVehicleAsync();
+
+            lblEmptyMsg.IsVisible = false;
 
             RefreshData();
 
+        }
+
+        private void btnHelp_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new HelpPage());
+        }
+
+        private void btnAbout_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AboutPage());
         }
 
     }

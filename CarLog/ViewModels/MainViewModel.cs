@@ -19,7 +19,7 @@ namespace CarLog.ViewModels
         private async void LoadDataFromRepository()
         {
 
-            await CLRepository.LoadDataAsync();
+            /////[TEMP] await CLRepository.LoadDataAsync();
 
         }
 

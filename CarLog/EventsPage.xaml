@@ -27,6 +27,10 @@
                     FontSize="Large" TextColor="White" Margin="0,0,0,0" 
                     HorizontalTextAlignment="Center" />
 
+            <Label Grid.Row="1" IsVisible="True" x:Name="lblEmptyMsg" 
+                   Text="No maintenance events. Tap &quot;New&quot; to add one." FontSize="Medium" 
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
             <CollectionView Grid.Row="1" x:Name="cvEvents"  
                     ItemsSource="{Binding _vehicle.VehicleEvents}"
                     Margin="15,0,15,0"
