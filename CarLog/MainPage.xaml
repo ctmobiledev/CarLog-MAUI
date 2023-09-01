@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Appearing="ContentPage_Appearing"
              Title="CarLog"
              BackgroundColor="#3388FF"
              x:Class="CarLog.MainPage">
@@ -13,7 +12,7 @@
          StackLayout with Vertical is just fine as of Sep 2023
     -->
 
-    <ScrollView>
+    <StackLayout Orientation="Vertical">
 
         <Grid VerticalOptions="FillAndExpand">
 
@@ -22,14 +21,15 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="50" />
             </Grid.RowDefinitions>
-            
+
             <!-- Data -->
 
             <Label Grid.Row="0" Text="My Vehicles" Margin="0,0,0,0"
                    FontSize="Large" TextColor="White" HorizontalTextAlignment="Center" />
 
-            <CollectionView Grid.Row="1" x:Name="cvVehicles" ItemsSource="{Binding CLRepository.Vehicles}" 
-                    Margin="20,0,0,0"
+            <CollectionView Grid.Row="1" x:Name="cvVehicles" 
+                    ItemsSource="{Binding CLRepository.Vehicles}" 
+                    Margin="10"
                     SelectionMode="Single"
                     SelectionChanged="cvVehicles_SelectionChanged">
 
@@ -41,14 +41,14 @@
 
             </CollectionView>
 
-            <StackLayout Grid.Row="2" HeightRequest="50" Margin="0,0,20,20" HorizontalOptions="End">
+            <StackLayout Grid.Row="2" HeightRequest="50" Margin="0,0,20,30" HorizontalOptions="End">
                 <Button x:Name="btnNew" 
                         Text="New" Clicked="btnNew_Clicked" HeightRequest="50" WidthRequest="100" />
             </StackLayout>
 
         </Grid>
 
-    </ScrollView>
-    
+    </StackLayout>
+  
 
 </ContentPage>
