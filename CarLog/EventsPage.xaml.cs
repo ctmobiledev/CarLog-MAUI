@@ -1,4 +1,5 @@
 using CarLog.Models;
+using CarLog.Repository;
 using CarLog.ViewModels;
 
 namespace CarLog;
@@ -6,18 +7,32 @@ namespace CarLog;
 public partial class EventsPage : ContentPage
 {
 
+    private Vehicle _vehicle;
+
 	public String VehicleName { get; set; }
 
 	public EventsPage(Vehicle vehicle)
 	{
 		InitializeComponent();
-		BindingContext = new EventsViewModel(vehicle);
+        _vehicle = vehicle;
+		BindingContext = new EventsViewModel(_vehicle);
     }
 
-    private void btnNew_Clicked(object sender, EventArgs e)
+    private void RefreshData()
+    {
+        cvEvents.ItemsSource = null;
+        cvEvents.ItemsSource = _vehicle.VehicleEvents;
+    }
+
+    private async void btnNew_Clicked(object sender, EventArgs e)
     {
 
-        DisplayAlert("Test", "New", "OK");
+        //await DisplayAlert("Test", "New", "OK");
+
+        // A call to an add form would precede this, of course.
+        await CLRepository.AddVehicleEventAsync(_vehicle);
+
+        RefreshData();
 
     }
 
@@ -28,6 +43,8 @@ public partial class EventsPage : ContentPage
 
         if (v != null)
         {
+            // MENU OF OPTIONS HERE: VIEW/UPDATE, DELETE ENTRY
+
             await DisplayAlert("Test", v.EventTimestamp + " " + v.EventMileage + " " +
                 v.EventName, "OK");
 

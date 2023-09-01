@@ -10,8 +10,8 @@
         <vm:EventsViewModel />
     </ContentPage.BindingContext>
 
-    
-    <StackLayout Orientation="Vertical">
+
+    <StackLayout Orientation="Vertical" Margin="5,10,5,10">
 
         <Grid VerticalOptions="FillAndExpand">
 
@@ -29,7 +29,7 @@
 
             <CollectionView Grid.Row="1" x:Name="cvEvents"  
                     ItemsSource="{Binding _vehicle.VehicleEvents}"
-                    Margin="10"
+                    Margin="15,0,15,0"
                     SelectionMode="Single"
                     SelectionChanged="cvEvents_SelectionChanged">
 

@@ -12,7 +12,7 @@
          StackLayout with Vertical is just fine as of Sep 2023
     -->
 
-    <StackLayout Orientation="Vertical">
+    <StackLayout Orientation="Vertical" Margin="5,10,5,10">
 
         <Grid VerticalOptions="FillAndExpand">
 
@@ -29,7 +29,7 @@
 
             <CollectionView Grid.Row="1" x:Name="cvVehicles" 
                     ItemsSource="{Binding CLRepository.Vehicles}" 
-                    Margin="10"
+                    Margin="15,0,15,0"
                     SelectionMode="Single"
                     SelectionChanged="cvVehicles_SelectionChanged">
 
@@ -41,9 +41,20 @@
 
             </CollectionView>
 
-            <StackLayout Grid.Row="2" HeightRequest="50" Margin="0,0,20,30" HorizontalOptions="End">
-                <Button x:Name="btnNew" 
-                        Text="New" Clicked="btnNew_Clicked" HeightRequest="50" WidthRequest="100" />
+            <StackLayout Orientation="Horizontal" Grid.Row="2" HeightRequest="50" Margin="0,0,20,30">
+
+                <HorizontalStackLayout HorizontalOptions="StartAndExpand" Margin="20,0,0,0">
+                    <Button x:Name="btnHelp" 
+                                Text="Help" HeightRequest="50" WidthRequest="100" Margin="0,0,0,0" />
+                    <Button x:Name="btnAbout" 
+                                Text="About" HeightRequest="50" WidthRequest="100" Margin="5,0,0,0" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="EndAndExpand">
+                    <Button x:Name="btnNew" 
+                                Text="New" Clicked="btnNew_Clicked" HeightRequest="50" WidthRequest="100" />
+                </HorizontalStackLayout>
+
             </StackLayout>
 
         </Grid>
