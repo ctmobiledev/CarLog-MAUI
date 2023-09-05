@@ -26,7 +26,7 @@ namespace CarLog.ViewModels
 
 
         public Vehicle SelectedVehicle { get; set; }                    // selection from list "lands" here; can be processed as needed
-
+                                                                               // note: binding mechanism can't see static vars
 
         // **** This didn't behave with INotifyPropertyChanged, so CLRepository.Vehicles is used instead **** 
         //public ObservableCollection<Vehicle> Vehicles { get; set; }         
@@ -44,6 +44,8 @@ namespace CarLog.ViewModels
                 {
                     Debug.WriteLine(">>> SelectCommand fired, item is: " + SelectedVehicle.VehicleMake + " " + SelectedVehicle.VehicleModel);
                     Application.Current.MainPage.Navigation.PushAsync(new EventsPage(SelectedVehicle));
+
+                    // Menu to appear here: Edit/View Children/Delete
                 }
             });
 

@@ -15,6 +15,28 @@ namespace CarLog.ViewModels
     public class EditVehicleViewModel : INotifyPropertyChanged
     {
 
+        /**
+        public Guid VID { get; set; }
+
+        public Int32 VehicleYear { get; set; }
+
+        public String VehicleMake { get; set; }
+
+        public String VehicleModel { get; set; }
+
+        public String VehicleColor { get; set; }
+
+        public Double VehicleMileage { get; set; }
+
+        public String LicensePlateTag { get; set; }
+
+        public String LicensePlateState { get; set; }
+
+        public String LicensePlateExpiry { get; set; }
+
+        public List<VehicleEvent> VehicleEvents { get; set; } = new List<VehicleEvent>();
+        **/
+
         public String VehicleYearEntry { get; set; }
 
         public String VehicleMakeEntry { get; set; }

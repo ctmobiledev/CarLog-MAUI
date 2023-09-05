@@ -6,9 +6,12 @@
              Title="Events"
              BackgroundColor="#3388FF">
 
+    <!--
+    /// SEE THE VIEW MODEL CODE FOR WHY THIS ISN'T SET HERE (THERE'S A PARM FOR THE SELECTED VEHICLE)
     <ContentPage.BindingContext>
         <vm:EventsViewModel />
     </ContentPage.BindingContext>
+    -->
 
 
     <StackLayout Orientation="Vertical" Margin="5,10,5,10">
@@ -32,10 +35,11 @@
                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
 
             <CollectionView Grid.Row="1" x:Name="cvEvents"  
-                    ItemsSource="{Binding _vehicle.VehicleEvents}"
+                    SelectedItem="{Binding SelectedEvent}"
+                    SelectionChangedCommand="{Binding SelectCommand}"
+                    SelectionChangedCommandParameter="{Binding .}"
                     Margin="15,0,15,0"
-                    SelectionMode="Single"
-                    SelectionChanged="cvEvents_SelectionChanged">
+                    SelectionMode="Single">
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -59,7 +63,9 @@
 
             <StackLayout Grid.Row="2" HeightRequest="50" Margin="0,0,20,30" HorizontalOptions="End">
                 <Button x:Name="btnNew" 
-                        Text="New" Clicked="btnNew_Clicked" HeightRequest="50" WidthRequest="100" />
+                        Command="{Binding AddCommand}" 
+                        Text="New" 
+                        HeightRequest="50" WidthRequest="100" />
             </StackLayout>
 
         </Grid>

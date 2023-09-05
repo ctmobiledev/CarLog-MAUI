@@ -15,42 +15,23 @@ public partial class EventsPage : ContentPage
 	{
 		InitializeComponent();
         _vehicle = vehicle;
-		BindingContext = new EventsViewModel(_vehicle);
-    }
-
-    private void RefreshData()
-    {
-        cvEvents.ItemsSource = null;
-        cvEvents.ItemsSource = _vehicle.VehicleEvents;
-
-        if (_vehicle.VehicleEvents.Count > 0)
-        {
-            lblEmptyMsg.IsVisible = false;
-        }
+		
+        // This needs to stay here since the viewModel is keyed off the vehicle (can't do that in XAML?)
+        BindingContext = new EventsViewModel(_vehicle);
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
 
-        RefreshData();
+        lblEmptyMsg.IsVisible = (_vehicle.VehicleEvents.Count == 0);
+
+        cvEvents.ItemsSource = null;
+        cvEvents.ItemsSource = _vehicle.VehicleEvents;
+
+        cvEvents.SelectedItem = null;
     }
 
-    private async void btnNew_Clicked(object sender, EventArgs e)
-    {
-
-        //await DisplayAlert("Test", "New", "OK");
-
-        await Navigation.PushAsync(new EditVehicleEventPage(_vehicle));
-
-        // A call to an add form would precede this, of course.
-        /////[TEMP] await CLRepository.AddVehicleEventAsync(_vehicle);
-
-        lblEmptyMsg.IsVisible = false;
-
-        RefreshData();
-
-    }
 
     private async void cvEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {

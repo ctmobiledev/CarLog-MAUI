@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CarLog.ViewModels"
              x:Class="CarLog.EditVehicleEventPage"
              Title="Edit Event"
              BackgroundColor="#3388FF">
 
+    <ContentPage.BindingContext>
+        <vm:EditVehicleEventViewModel />
+    </ContentPage.BindingContext>
+
+    
     <StackLayout Orientation="Vertical" Margin="5,10,5,10">
 
         <Grid VerticalOptions="FillAndExpand">
@@ -40,14 +46,17 @@
 
                     <Label Text="Timestamp" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryTimestamp" FontSize="Large" Margin="0,0,0,10" 
+                          Text="{Binding EventTimestampEntry, Mode=TwoWay}"
                           BackgroundColor="White" TextColor="Black" />
 
                     <Label Text="Mileage" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryMileage" FontSize="Large" Margin="0,0,0,10" 
+                          Text="{Binding EventMileageEntry, Mode=TwoWay}"
                           BackgroundColor="White" TextColor="Black" />
 
                     <Label Text="Event Name" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryEventName" FontSize="Large" Margin="0,0,0,10" 
+                          Text="{Binding EventNameEntry, Mode=TwoWay}"
                           BackgroundColor="White" TextColor="Black" />
 
                 </VerticalStackLayout>
@@ -58,10 +67,12 @@
             <StackLayout Orientation="Horizontal" Grid.Row="2" HeightRequest="50" Margin="0,0,20,30">
 
                 <HorizontalStackLayout HorizontalOptions="StartAndExpand" Margin="20,0,0,0">
-                    <Button x:Name="btnSave" Clicked="btnSave_Clicked" 
-                                Text="Save" HeightRequest="50" WidthRequest="100" Margin="0,0,0,0" />
-                    <Button x:Name="btnCancel" Clicked="btnCancel_Clicked"
-                                Text="Cancel" HeightRequest="50" WidthRequest="100" Margin="5,0,0,0" />
+                    <Button x:Name="btnSave"
+                            Command="{Binding SaveCommand}"
+                            Text="Save" HeightRequest="50" WidthRequest="100" Margin="0,0,0,0" />
+                    <Button x:Name="btnCancel" 
+                            Command="{Binding CancelCommand}"
+                            Text="Cancel" HeightRequest="50" WidthRequest="100" Margin="5,0,0,0" />
                 </HorizontalStackLayout>
 
             </StackLayout>
