@@ -26,7 +26,7 @@ namespace CarLog.Repository
                 {
                     VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),
                     VehicleYear = 2017,
-                    VehicleMaker = "Chevrolet",
+                    VehicleMake = "Chevrolet",
                     VehicleModel = "Spark",
                     VehicleColor = "Splash",
                     VehicleMileage = 175000,
@@ -66,7 +66,7 @@ namespace CarLog.Repository
                 {
                     VID = new Guid("a47b36ee-5abd-465c-ab8c-87d3cca3545c"),
                     VehicleYear = 2024,
-                    VehicleMaker = "Chevrolet",
+                    VehicleMake = "Chevrolet",
                     VehicleModel = "Malibu",
                     VehicleColor = "Gold",
                     VehicleMileage = 28000,
@@ -79,7 +79,7 @@ namespace CarLog.Repository
                 {
                     VID = new Guid("881b36ee-5abd-465c-ab8c-87d3cca3545c"),
                     VehicleYear = 2023,
-                    VehicleMaker = "Kia",
+                    VehicleMake = "Kia",
                     VehicleModel = "Forte",
                     VehicleColor = "Black",
                     VehicleMileage = 18400,
@@ -103,7 +103,7 @@ namespace CarLog.Repository
                 {
                     VID = Guid.NewGuid(),
                     VehicleYear = 2023,
-                    VehicleMaker = "Ford",
+                    VehicleMake = "Ford",
                     VehicleModel = "Fiesta",
                     VehicleColor = "Green",
                     VehicleMileage = 25000,

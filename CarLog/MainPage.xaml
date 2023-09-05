@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CarLog.ViewModels"
              Title="CarLog"
              BackgroundColor="#3388FF"
              x:Class="CarLog.MainPage">
 
-    
-    <!-- BUG: VerticalStackLayout (still) does not allow certain controls to FillAndExpand or End or any other options
+    <ContentPage.BindingContext>
+        <vm:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <!-- BUG: VerticalStackLayout (still) does not allow certain controls to 
+         FillAndExpand or End or any other options
+         
          See: https://github.com/dotnet/maui/issues/7386 
     
          StackLayout with Vertical is just fine as of Sep 2023
@@ -32,10 +38,11 @@
                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
 
             <CollectionView Grid.Row="1" x:Name="cvVehicles" 
-                    ItemsSource="{Binding CLRepository.Vehicles}" 
+                    SelectedItem="{Binding SelectedVehicle}"
+                    SelectionChangedCommand="{Binding SelectCommand}"
+                    SelectionChangedCommandParameter="{Binding .}"
                     Margin="15,0,15,0"
-                    SelectionMode="Single"
-                    SelectionChanged="cvVehicles_SelectionChanged">
+                    SelectionMode="Single">
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -48,15 +55,19 @@
             <StackLayout Orientation="Horizontal" Grid.Row="2" HeightRequest="50" Margin="0,0,20,30">
 
                 <HorizontalStackLayout HorizontalOptions="StartAndExpand" Margin="20,0,0,0">
-                    <Button x:Name="btnHelp" Clicked="btnHelp_Clicked"
-                                Text="Help" HeightRequest="50" WidthRequest="100" Margin="0,0,0,0" />
-                    <Button x:Name="btnAbout" Clicked="btnAbout_Clicked"
-                                Text="About" HeightRequest="50" WidthRequest="100" Margin="5,0,0,0" />
+                    <Button x:Name="btnHelp" 
+                            Command="{Binding HelpCommand}"
+                            Text="Help" HeightRequest="50" WidthRequest="100" Margin="0,0,0,0" />
+                    <Button x:Name="btnAbout" 
+                            Command="{Binding AboutCommand}"
+                            Text="About" HeightRequest="50" WidthRequest="100" Margin="5,0,0,0" />
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout HorizontalOptions="EndAndExpand">
                     <Button x:Name="btnNew" 
-                                Text="New" Clicked="btnNew_Clicked" HeightRequest="50" WidthRequest="100" />
+                            Command="{Binding AddCommand}" 
+                            Text="New" 
+                            HeightRequest="50" WidthRequest="100" />
                 </HorizontalStackLayout>
 
             </StackLayout>

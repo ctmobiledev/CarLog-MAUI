@@ -11,9 +11,9 @@ namespace CarLog.Models
 
         public Guid VID { get; set; }
 
-        public Int16 VehicleYear { get; set; }
+        public Int32 VehicleYear { get; set; }
 
-        public String VehicleMaker { get; set; }
+        public String VehicleMake { get; set; }
 
         public String VehicleModel { get; set; }
 
