@@ -31,7 +31,7 @@ namespace CarLog.ViewModels
         
         }
 
-        public EventsViewModel(Vehicle vehicle) {
+        public EventsViewModel(Vehicle vehicle, CollectionView cview) {
             _vehicle = vehicle;
 
             VehicleName = _vehicle.VehicleYear.ToString() + " " + _vehicle.VehicleModel;
@@ -48,6 +48,18 @@ namespace CarLog.ViewModels
                     Application.Current.MainPage.DisplayAlert("Event Selected", SelectedEvent.EventTimestamp + " " + 
                         SelectedEvent.EventMileage + " " +
                         SelectedEvent.EventName, "OK");
+
+                    //
+                    // Turn off the selection (for Android, mainly)
+                    //
+                    IDispatcherTimer DeselectionTimer;
+                    DeselectionTimer = Application.Current.Dispatcher.CreateTimer();
+                    DeselectionTimer.Interval = TimeSpan.FromMilliseconds(250);
+                    DeselectionTimer.Tick += (sender, e) => {
+                        cview.SelectedItem = null;
+                        DeselectionTimer.Stop();
+                    };
+                    DeselectionTimer.Start();
 
                     // Menu to appear here: Edit/View Children/Delete
                 }
