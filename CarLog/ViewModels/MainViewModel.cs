@@ -32,20 +32,51 @@ namespace CarLog.ViewModels
         //public ObservableCollection<Vehicle> Vehicles { get; set; }         
 
 
-        public MainViewModel() {
+        public MainViewModel(CollectionView cview) {
 
             AddCommand = new Command(() => {
+                SelectedVehicle = new Vehicle();
                 Debug.WriteLine(">>> AddCommand fired");
-                Application.Current.MainPage.Navigation.PushAsync(new EditVehiclePage());
+                Application.Current.MainPage.Navigation.PushAsync(new EditVehiclePage(SelectedVehicle));
             });
 
-            SelectCommand = new Command<Object>((Object e) => {
+            SelectCommand = new Command<Object>(async (Object e) => {
                 if (SelectedVehicle != null)
                 {
                     Debug.WriteLine(">>> SelectCommand fired, item is: " + SelectedVehicle.VehicleMake + " " + SelectedVehicle.VehicleModel);
-                    Application.Current.MainPage.Navigation.PushAsync(new EventsPage(SelectedVehicle));
 
                     // Menu to appear here: Edit/View Children/Delete
+                    var TapAction = await Application.Current.MainPage.DisplayActionSheet("Pick An Action", 
+                        "Cancel", null, "Edit Vehicle", "View Events", "Delete Vehicle");
+                    Debug.WriteLine(">>> TapAction: " + TapAction);
+
+                    switch(TapAction.ToString())
+                    {
+                        case "Edit Vehicle":
+                            await Application.Current.MainPage.Navigation.PushAsync(new EditVehiclePage(SelectedVehicle));     
+                            break;
+                        case "View Events":
+                            await Application.Current.MainPage.Navigation.PushAsync(new EventsPage(SelectedVehicle));
+                            break;
+                        case "Delete Vehicle":
+                            ConfirmDelete();
+                            break;
+                        default:
+                            break;
+                    }
+
+                    //
+                    // Turn off the selection (for Android, mainly) - but after the selection has been processed!
+                    //
+                    IDispatcherTimer DeselectionTimer;
+                    DeselectionTimer = Application.Current.Dispatcher.CreateTimer();
+                    DeselectionTimer.Interval = TimeSpan.FromMilliseconds(250);
+                    DeselectionTimer.Tick += (sender, e) => {
+                        cview.SelectedItem = null;
+                        DeselectionTimer.Stop();
+                    };
+                    DeselectionTimer.Start();
+
                 }
             });
 
@@ -60,6 +91,23 @@ namespace CarLog.ViewModels
             });
 
         }
+
+        private async void ConfirmDelete()
+        {
+
+            bool TapConfirm = await Application.Current.MainPage.DisplayAlert("Delete Vehicle", 
+                "Are you sure you want to delete this vehicle?", "Yes, Delete", "No, Cancel");
+
+            if (TapConfirm)
+            {
+                await Application.Current.MainPage.DisplayAlert("Delete Vehicle",
+                    "Vehicle has been deleted.", "OK");
+
+                // Remove from Repository.
+            }
+
+        }
+
 
         private async void LoadDataFromRepository()
         {

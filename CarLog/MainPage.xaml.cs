@@ -12,6 +12,9 @@ namespace CarLog
         public MainPage()
         {
             InitializeComponent();
+
+            // This needs to stay here so the CollectionView can be cleared of its selection
+            BindingContext = new MainViewModel(cvVehicles);
         }
 
 

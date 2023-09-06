@@ -29,6 +29,9 @@ namespace CarLog.ViewModels
 
         public static Vehicle _vehicle;
 
+        public static VehicleEvent _CurrentEvent { get; set; }
+
+        public String ActionPrompt { get; set; }
 
         public String EventTimestampEntry { get; set; }
 
@@ -42,7 +45,27 @@ namespace CarLog.ViewModels
         public ICommand CancelCommand { private set; get; }
 
 
-        public EditVehicleEventViewModel() {
+        public EditVehicleEventViewModel(Vehicle vehicle) {
+
+            _vehicle = vehicle;
+
+            // How get a passed-in event?
+            _CurrentEvent = _vehicle.VehicleEvents[0];
+            Debug.WriteLine(">>> EditVehicleEventViewModel fired, _CurrentEvent = " +
+                _CurrentEvent.EventMileage.ToString() + " " + _CurrentEvent.EventName);
+
+            if (_CurrentEvent.EventName == null)
+            {
+                ActionPrompt = "Add an event below.";
+            }
+            else
+            {
+                ActionPrompt = "Edit the event below.";
+
+                //VehicleYearEntry = _CurrentVehicle.VehicleYear.ToString();
+                //VehicleMakeEntry = _CurrentVehicle.VehicleMake;
+                //VehicleModelEntry = _CurrentVehicle.VehicleModel;
+            }
 
             SaveCommand = new Command(() => {
                 Debug.WriteLine(">>> SaveCommand fired");
@@ -51,14 +74,24 @@ namespace CarLog.ViewModels
                 Debug.WriteLine(">>> EventMileageEntry = " + EventMileageEntry);
                 Debug.WriteLine(">>> EventNameEntry = " + EventNameEntry);
 
-                _vehicle.VehicleEvents.Add(new VehicleEvent
+                if (_CurrentEvent.EventName == null)
                 {
-                    EventId = Guid.NewGuid(),
-                    VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),
-                    EventTimestamp = DateTime.Now,
-                    EventMileage = int.Parse(EventMileageEntry),
-                    EventName = EventNameEntry
-                });
+                    _vehicle.VehicleEvents.Add(new VehicleEvent
+                    {
+                        EventId = Guid.NewGuid(),
+                        VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),
+                        EventTimestamp = DateTime.Now,
+                        EventMileage = int.Parse(EventMileageEntry),
+                        EventName = EventNameEntry
+                    });
+                }
+                else
+                {
+                    var foundEvent = _vehicle.VehicleEvents.Where(x => x.EventId == _CurrentEvent.EventId).FirstOrDefault();
+
+                    foundEvent.EventMileage = int.Parse(EventMileageEntry);
+                    foundEvent.EventName = EventNameEntry;
+                }
 
                 Application.Current.MainPage.Navigation.PopAsync();
             });

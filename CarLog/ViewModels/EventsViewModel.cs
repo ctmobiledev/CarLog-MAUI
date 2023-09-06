@@ -41,16 +41,30 @@ namespace CarLog.ViewModels
                 Application.Current.MainPage.Navigation.PushAsync(new EditVehicleEventPage(_vehicle));
             });
 
-            SelectCommand = new Command<Object>((Object e) => {
+            SelectCommand = new Command<Object>(async (Object e) => {
                 if (SelectedEvent != null)
                 {
                     Debug.WriteLine(">>> SelectCommand fired, item is: " + SelectedEvent.EventName);
-                    Application.Current.MainPage.DisplayAlert("Event Selected", SelectedEvent.EventTimestamp + " " + 
-                        SelectedEvent.EventMileage + " " +
-                        SelectedEvent.EventName, "OK");
+
+                    // Menu to appear here: Edit/View Children/Delete
+                    var TapAction = await Application.Current.MainPage.DisplayActionSheet("Pick An Action",
+                        "Cancel", null, "Edit Event", "Delete Event");                          // no child data below this
+                    Debug.WriteLine(">>> TapAction: " + TapAction);
+
+                    switch (TapAction.ToString())
+                    {
+                        case "Edit Event":
+                            await Application.Current.MainPage.Navigation.PushAsync(new EditVehicleEventPage(SelectedEvent));
+                            break;
+                        case "Delete Event":
+                            ConfirmDelete();
+                            break;
+                        default:
+                            break;
+                    }
 
                     //
-                    // Turn off the selection (for Android, mainly)
+                    // Turn off the selection (for Android, mainly) - but after the selection has been processed!
                     //
                     IDispatcherTimer DeselectionTimer;
                     DeselectionTimer = Application.Current.Dispatcher.CreateTimer();
@@ -64,6 +78,23 @@ namespace CarLog.ViewModels
                     // Menu to appear here: Edit/View Children/Delete
                 }
             });
+        }
+
+
+        private async void ConfirmDelete()
+        {
+
+            bool TapConfirm = await Application.Current.MainPage.DisplayAlert("Delete Event",
+                "Are you sure you want to delete this event?", "Yes, Delete", "No, Cancel");
+
+            if (TapConfirm)
+            {
+                await Application.Current.MainPage.DisplayAlert("Delete Event",
+                    "Event has been deleted.", "OK");
+
+                // Remove from Repository.
+            }
+
         }
 
 

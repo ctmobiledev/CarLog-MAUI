@@ -6,10 +6,14 @@
              BackgroundColor="#3388FF"
              x:Class="CarLog.MainPage">
 
+    <!-- 
+    /// SEE THE VIEW MODEL CODE FOR WHY THIS ISN'T SET HERE 
     <ContentPage.BindingContext>
         <vm:MainViewModel />
     </ContentPage.BindingContext>
+    -->
 
+    
     <!-- BUG: VerticalStackLayout (still) does not allow certain controls to 
          FillAndExpand or End or any other options
          

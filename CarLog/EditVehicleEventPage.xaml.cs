@@ -11,7 +11,12 @@ public partial class EditVehicleEventPage : ContentPage
 	public EditVehicleEventPage(Vehicle vehicle)
 	{
 		InitializeComponent();
-		EditVehicleEventViewModel._vehicle = vehicle;
+
+        // How pass in an existing event?
+
+        BindingContext = new EditVehicleEventViewModel(vehicle);
+
+        EditVehicleEventViewModel._vehicle = vehicle;
 	}
 
 }

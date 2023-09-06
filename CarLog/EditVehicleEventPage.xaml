@@ -6,10 +6,11 @@
              Title="Edit Event"
              BackgroundColor="#3388FF">
 
+    <!-- 
     <ContentPage.BindingContext>
         <vm:EditVehicleEventViewModel />
     </ContentPage.BindingContext>
-
+    -->
     
     <StackLayout Orientation="Vertical" Margin="5,10,5,10">
 
@@ -23,7 +24,7 @@
 
             <!-- Data -->
 
-            <Label Grid.Row="0" Text="Add an event below." Margin="0,0,0,0" 
+            <Label Grid.Row="0" Text="{Binding ActionPrompt}" Margin="0,0,0,0" 
                    FontSize="Large" TextColor="White" HorizontalTextAlignment="Center" />
 
             
