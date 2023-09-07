@@ -45,10 +45,10 @@
                     <DataTemplate>
                         <Grid Margin="0,15,0,15">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="32"/>
+                                <RowDefinition Height="32"/>
+                                <RowDefinition Height="32"/>
+                                <RowDefinition Height="32"/>
                             </Grid.RowDefinitions>
 
                             <!-- Data -->

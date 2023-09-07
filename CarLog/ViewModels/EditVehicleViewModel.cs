@@ -52,6 +52,10 @@ namespace CarLog.ViewModels
 
         public ICommand CancelCommand { private set; get; }
 
+        public ICommand DeleteCommand { private set; get; }
+
+        public Boolean DeleteButtonVisible { get; set; }
+
 
         public EditVehicleViewModel(Vehicle CurrentVehicle)
         {
@@ -63,6 +67,8 @@ namespace CarLog.ViewModels
             if (_CurrentVehicle.VehicleMake == null)
             {
                 ActionPrompt = "Add a vehicle below.";
+
+                DeleteButtonVisible = false;
             }
             else
             {
@@ -71,6 +77,8 @@ namespace CarLog.ViewModels
                 VehicleYearEntry = _CurrentVehicle.VehicleYear.ToString();
                 VehicleMakeEntry = _CurrentVehicle.VehicleMake;
                 VehicleModelEntry = _CurrentVehicle.VehicleModel;
+
+                DeleteButtonVisible = true;
             }
 
 
@@ -119,7 +127,46 @@ namespace CarLog.ViewModels
                 Debug.WriteLine(">>> CancelCommand fired");
                 Application.Current.MainPage.Navigation.PopAsync();
             });
+
+            DeleteCommand = new Command(() =>
+            {
+                Debug.WriteLine(">>> DeleteCommand fired");
+                ConfirmDelete();
+            });
+
+
         }
+
+        private async void ConfirmDelete()
+        {
+
+            bool TapConfirm = await Application.Current.MainPage.DisplayAlert("Delete Vehicle",
+                "Are you sure you want to delete this vehicle?", "Yes, Delete", "No, Cancel");
+
+            if (TapConfirm)
+            {
+                var foundVehicle = CLRepository.Vehicles.Where(x => x.VID == _CurrentVehicle.VID).FirstOrDefault();
+
+                if (foundVehicle != null)
+                {
+                    var deleteOk = CLRepository.Vehicles.Remove(foundVehicle);
+
+                    if (!deleteOk)
+                    {
+                        // This should never happen 
+
+                        await Application.Current.MainPage.DisplayAlert("Delete Vehicle",
+                            "Vehicle did not delete successfully.", "OK");
+                    }
+                }
+
+                await Application.Current.MainPage.Navigation.PopAsync();
+            }
+
+        }
+
+
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;

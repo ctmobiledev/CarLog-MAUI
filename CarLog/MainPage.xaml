@@ -50,7 +50,14 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding VID}" TextColor="White" FontSize="Medium" HeightRequest="60" VerticalTextAlignment="Center"/>
+                        <HorizontalStackLayout>
+                            <Label Text="{Binding VehicleYear}" TextColor="White" FontSize="Medium" Margin="0,0,5,0"
+                                   HeightRequest="60" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding VehicleMake}" TextColor="White" FontSize="Medium" Margin="0,0,5,0" 
+                                   HeightRequest="60" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding VehicleModel}" TextColor="White" FontSize="Medium" 
+                                   HeightRequest="60" VerticalTextAlignment="Center"/>
+                        </HorizontalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
 

@@ -32,6 +32,10 @@ namespace CarLog.ViewModels
 
         public ICommand CancelCommand { private set; get; }
 
+        public ICommand DeleteCommand { private set; get; }
+
+        public Boolean DeleteButtonVisible { get; set; }
+
 
         public EditVehicleEventViewModel(VehicleEvent CurrentEvent) {
 
@@ -43,13 +47,20 @@ namespace CarLog.ViewModels
             if (_CurrentEvent.MaintEventName == null)
             {
                 ActionPrompt = "Add an event below.";
+
+                MaintEventTimestampEntry = DateTime.Now.ToString();
+
+                DeleteButtonVisible = false;
             }
             else
             {
                 ActionPrompt = "Edit the event below.";
 
+                MaintEventTimestampEntry = _CurrentEvent.MaintEventTimestamp.ToString();
                 MaintEventNameEntry = _CurrentEvent.MaintEventName;
                 MaintEventMileageEntry = _CurrentEvent.MaintEventMileage.ToString();
+
+                DeleteButtonVisible = true;
             }
 
             SaveCommand = new Command(() => {
@@ -65,7 +76,7 @@ namespace CarLog.ViewModels
                     {
                         MaintEventId = Guid.NewGuid(),
                         VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),
-                        MaintEventTimestamp = DateTime.Now,
+                        MaintEventTimestamp = DateTime.Parse(MaintEventTimestampEntry),
                         MaintEventMileage = int.Parse(MaintEventMileageEntry),
                         MaintEventName = MaintEventNameEntry
                     });
@@ -85,6 +96,41 @@ namespace CarLog.ViewModels
                 Debug.WriteLine(">>> CancelCommand fired");
                 Application.Current.MainPage.Navigation.PopAsync();
             });
+
+            DeleteCommand = new Command(() =>
+            {
+                Debug.WriteLine(">>> DeleteCommand fired");
+                ConfirmDelete();
+            });
+
+        }
+
+        private async void ConfirmDelete()
+        {
+
+            bool TapConfirm = await Application.Current.MainPage.DisplayAlert("Delete Event",
+                "Are you sure you want to delete this event?", "Yes, Delete", "No, Cancel");
+
+            if (TapConfirm)
+            {
+
+                var foundEvent = _vehicle.VehicleEvents.Where(x => x.MaintEventId == _CurrentEvent.MaintEventId).FirstOrDefault();
+
+                if (foundEvent != null)
+                {
+                    var deleteOk = _vehicle.VehicleEvents.Remove(foundEvent);
+
+                    if (!deleteOk)
+                    {
+                        // This should never happen 
+
+                        await Application.Current.MainPage.DisplayAlert("Delete Event",
+                            "Event did not delete successfully.", "OK");
+                    }
+                }
+
+                await Application.Current.MainPage.Navigation.PopAsync();
+            }
 
         }
 

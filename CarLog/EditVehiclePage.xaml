@@ -93,7 +93,7 @@
                 </VerticalStackLayout>
 
             </ScrollView>
-            
+
 
             <StackLayout Orientation="Horizontal" Grid.Row="2" HeightRequest="50" Margin="0,0,20,30">
 
@@ -104,6 +104,15 @@
                     <Button x:Name="btnCancel" 
                             Command="{Binding CancelCommand}"
                             Text="Cancel" HeightRequest="50" WidthRequest="100" Margin="5,0,0,0" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="EndAndExpand">
+                    <Button x:Name="btnDelete" 
+                            Command="{Binding DeleteCommand}" 
+                            IsVisible="{Binding DeleteButtonVisible}"
+                            Text="Delete" 
+                            TextColor="DarkRed"
+                            HeightRequest="50" WidthRequest="100" />
                 </HorizontalStackLayout>
 
             </StackLayout>

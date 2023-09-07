@@ -31,9 +31,9 @@
 
                 <VerticalStackLayout Margin="20,0,20,0">
 
-                    <Label Text="Timestamp" FontSize="Medium" TextColor="White" />
+                    <Label Text="Timestamp" FontSize="Medium" TextColor="White"/>
                     <Entry x:Name="entryTimestamp" FontSize="Large" Margin="0,0,0,10" 
-                          Text="{Binding MaintEventTimestampEntry, Mode=TwoWay}"
+                          Text="{Binding MaintEventTimestampEntry}" IsEnabled="False" 
                           BackgroundColor="White" TextColor="Black" />
 
                     <Label Text="Mileage" FontSize="Medium" TextColor="White" />
@@ -60,6 +60,15 @@
                     <Button x:Name="btnCancel" 
                             Command="{Binding CancelCommand}"
                             Text="Cancel" HeightRequest="50" WidthRequest="100" Margin="5,0,0,0" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="EndAndExpand">
+                    <Button x:Name="btnDelete" 
+                            Command="{Binding DeleteCommand}" 
+                            IsVisible="{Binding DeleteButtonVisible}"
+                            Text="Delete" 
+                            TextColor="DarkRed"
+                            HeightRequest="50" WidthRequest="100" />
                 </HorizontalStackLayout>
 
             </StackLayout>

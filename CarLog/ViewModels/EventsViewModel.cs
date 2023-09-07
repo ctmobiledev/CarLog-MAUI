@@ -34,7 +34,9 @@ namespace CarLog.ViewModels
         public EventsViewModel(Vehicle vehicle, CollectionView cview) {
             _vehicle = vehicle;
 
-            VehicleName = _vehicle.VehicleYear.ToString() + " " + _vehicle.VehicleModel;
+            VehicleName = _vehicle.VehicleYear.ToString() 
+                + " " + _vehicle.VehicleMake
+                + " " + _vehicle.VehicleModel;
 
             AddCommand = new Command(() => {
                 Debug.WriteLine(">>> AddCommand fired");
@@ -47,9 +49,13 @@ namespace CarLog.ViewModels
                 {
                     Debug.WriteLine(">>> SelectCommand fired, item is: " + SelectedEvent.MaintEventName);
 
+                    // No menu needed; just one action, editing
+                    await Application.Current.MainPage.Navigation.PushAsync(new EditVehicleEventPage(_vehicle, SelectedEvent));
+
+                    /***
                     // Menu to appear here: Edit/View Children/Delete
                     var TapAction = await Application.Current.MainPage.DisplayActionSheet("Pick An Action",
-                        "Cancel", null, "Edit Event", "Delete Event");                          // no child data below this
+                        "Cancel", null, "Edit Event");                          // no child data below this
                     Debug.WriteLine(">>> TapAction: " + TapAction);
 
                     switch (TapAction.ToString())
@@ -57,14 +63,10 @@ namespace CarLog.ViewModels
                         case "Edit Event":
                             await Application.Current.MainPage.Navigation.PushAsync(new EditVehicleEventPage(_vehicle, SelectedEvent));
                             break;
-                        case "Delete Event":
-                            ConfirmDelete();
-                            break;
                         default:
                             break;
                     }
-
-                    //
+                                         //
                     // Turn off the selection (for Android, mainly) - but after the selection has been processed!
                     //
                     IDispatcherTimer DeselectionTimer;
@@ -75,27 +77,10 @@ namespace CarLog.ViewModels
                         DeselectionTimer.Stop();
                     };
                     DeselectionTimer.Start();
+                    ***/
 
-                    // Menu to appear here: Edit/View Children/Delete
                 }
             });
-        }
-
-
-        private async void ConfirmDelete()
-        {
-
-            bool TapConfirm = await Application.Current.MainPage.DisplayAlert("Delete Event",
-                "Are you sure you want to delete this event?", "Yes, Delete", "No, Cancel");
-
-            if (TapConfirm)
-            {
-                await Application.Current.MainPage.DisplayAlert("Delete Event",
-                    "Event has been deleted.", "OK");
-
-                // Remove from Repository.
-            }
-
         }
 
 

@@ -47,7 +47,7 @@ namespace CarLog.ViewModels
 
                     // Menu to appear here: Edit/View Children/Delete
                     var TapAction = await Application.Current.MainPage.DisplayActionSheet("Pick An Action", 
-                        "Cancel", null, "Edit Vehicle", "View Events", "Delete Vehicle");
+                        "Cancel", null, "Edit Vehicle", "View Events");
                     Debug.WriteLine(">>> TapAction: " + TapAction);
 
                     switch(TapAction.ToString())
@@ -57,9 +57,6 @@ namespace CarLog.ViewModels
                             break;
                         case "View Events":
                             await Application.Current.MainPage.Navigation.PushAsync(new EventsPage(SelectedVehicle));
-                            break;
-                        case "Delete Vehicle":
-                            ConfirmDelete();
                             break;
                         default:
                             break;
