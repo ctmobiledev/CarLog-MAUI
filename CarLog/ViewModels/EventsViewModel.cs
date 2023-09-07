@@ -38,13 +38,14 @@ namespace CarLog.ViewModels
 
             AddCommand = new Command(() => {
                 Debug.WriteLine(">>> AddCommand fired");
-                Application.Current.MainPage.Navigation.PushAsync(new EditVehicleEventPage(_vehicle));
+                VehicleEvent newEvent = new VehicleEvent();
+                Application.Current.MainPage.Navigation.PushAsync(new EditVehicleEventPage(_vehicle, newEvent));
             });
 
             SelectCommand = new Command<Object>(async (Object e) => {
                 if (SelectedEvent != null)
                 {
-                    Debug.WriteLine(">>> SelectCommand fired, item is: " + SelectedEvent.EventName);
+                    Debug.WriteLine(">>> SelectCommand fired, item is: " + SelectedEvent.MaintEventName);
 
                     // Menu to appear here: Edit/View Children/Delete
                     var TapAction = await Application.Current.MainPage.DisplayActionSheet("Pick An Action",
@@ -54,7 +55,7 @@ namespace CarLog.ViewModels
                     switch (TapAction.ToString())
                     {
                         case "Edit Event":
-                            await Application.Current.MainPage.Navigation.PushAsync(new EditVehicleEventPage(SelectedEvent));
+                            await Application.Current.MainPage.Navigation.PushAsync(new EditVehicleEventPage(_vehicle, SelectedEvent));
                             break;
                         case "Delete Event":
                             ConfirmDelete();

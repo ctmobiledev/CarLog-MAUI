@@ -38,26 +38,26 @@ namespace CarLog.Repository
                     new VehicleEvent
                     {
                         VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),
-                        EventId = new Guid("00000001-5abd-465c-ab8c-87d3cca3545c"),
-                        EventMileage = 100000,
-                        EventName = "Oil Change",
-                        EventTimestamp = DateTime.Now
+                        MaintEventId = new Guid("00000001-5abd-465c-ab8c-87d3cca3545c"),
+                        MaintEventMileage = 100000,
+                        MaintEventName = "Oil Change",
+                        MaintEventTimestamp = DateTime.Now
                     },
                     new VehicleEvent
                     {
                         VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),
-                        EventId = new Guid("00000002-5abd-465c-ab8c-87d3cca3545c"),
-                        EventMileage = 112000,
-                        EventName = "Radiator Flush",
-                        EventTimestamp = DateTime.Now
+                        MaintEventId = new Guid("00000002-5abd-465c-ab8c-87d3cca3545c"),
+                        MaintEventMileage = 112000,
+                        MaintEventName = "Radiator Flush",
+                        MaintEventTimestamp = DateTime.Now
                     },
                     new VehicleEvent
                     {
                         VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),
-                        EventId = new Guid("00000003-5abd-465c-ab8c-87d3cca3545c"),
-                        EventMileage = 117000,
-                        EventName = "New Tires",
-                        EventTimestamp = DateTime.Now
+                        MaintEventId = new Guid("00000003-5abd-465c-ab8c-87d3cca3545c"),
+                        MaintEventMileage = 117000,
+                        MaintEventName = "New Tires",
+                        MaintEventTimestamp = DateTime.Now
                     },
                 }
                 });
@@ -125,10 +125,10 @@ namespace CarLog.Repository
                 veh.VehicleEvents.Add(new VehicleEvent
                 {
                     VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),
-                    EventId = new Guid("00000001-5abd-465c-ab8c-87d3cca3545c"),
-                    EventMileage = 100000,
-                    EventName = "Oil Change",
-                    EventTimestamp = DateTime.Now
+                    MaintEventId = new Guid("00000001-5abd-465c-ab8c-87d3cca3545c"),
+                    MaintEventMileage = 100000,
+                    MaintEventName = "Oil Change",
+                    MaintEventTimestamp = DateTime.Now
                 });
             });
 

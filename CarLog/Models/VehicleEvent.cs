@@ -9,15 +9,15 @@ namespace CarLog.Models
     public class VehicleEvent
     {
 
-        public Guid EventId { get; set; }
+        public Guid MaintEventId { get; set; }
         
         public Guid VID { get; set; }
 
-        public DateTime EventTimestamp { get; set; }
+        public DateTime MaintEventTimestamp { get; set; }
 
-        public Double EventMileage { get; set; }
+        public Double MaintEventMileage { get; set; }
 
-        public String EventName { get; set; }
+        public String MaintEventName { get; set; }
 
     }
 }

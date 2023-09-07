@@ -27,37 +27,23 @@
             <Label Grid.Row="0" Text="{Binding ActionPrompt}" Margin="0,0,0,0" 
                    FontSize="Large" TextColor="White" HorizontalTextAlignment="Center" />
 
-            
-            <!-- Entry Fields 
-            
-            _vehicle.VehicleEvents.Add(new VehicleEvent
-            {
-                EventId = Guid.NewGuid(),
-                VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),
-                EventTimestamp = DateTime.Now,
-                EventMileage = 99000,
-                EventName = "Routine Checkup"
-            });
-
-            -->
-
             <ScrollView Grid.Row="1" Margin="0,0,0,30">
 
                 <VerticalStackLayout Margin="20,0,20,0">
 
                     <Label Text="Timestamp" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryTimestamp" FontSize="Large" Margin="0,0,0,10" 
-                          Text="{Binding EventTimestampEntry, Mode=TwoWay}"
+                          Text="{Binding MaintEventTimestampEntry, Mode=TwoWay}"
                           BackgroundColor="White" TextColor="Black" />
 
                     <Label Text="Mileage" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryMileage" FontSize="Large" Margin="0,0,0,10" 
-                          Text="{Binding EventMileageEntry, Mode=TwoWay}"
+                          Text="{Binding MaintEventMileageEntry, Mode=TwoWay}"
                           BackgroundColor="White" TextColor="Black" />
 
                     <Label Text="Event Name" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryEventName" FontSize="Large" Margin="0,0,0,10" 
-                          Text="{Binding EventNameEntry, Mode=TwoWay}"
+                          Text="{Binding MaintEventNameEntry, Mode=TwoWay}"
                           BackgroundColor="White" TextColor="Black" />
 
                 </VerticalStackLayout>
