@@ -19,5 +19,13 @@ namespace CarLog.Models
 
         public String MaintEventName { get; set; }
 
+        public Double Cost { get; set; }
+
+        public String Servicer { get; set; }
+
+        public String Location { get; set; }
+
+        public String Remarks { get; set; }
+
     }
 }

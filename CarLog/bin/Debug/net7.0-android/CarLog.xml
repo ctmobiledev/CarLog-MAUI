@@ -4,5 +4,6 @@
         <name>CarLog</name>
     </assembly>
     <members>
+        <!-- Badly formed XML comment ignored for member "P:CarLog.ViewModels.EditVehicleViewModel._CurrentVehicle" -->
     </members>
 </doc>

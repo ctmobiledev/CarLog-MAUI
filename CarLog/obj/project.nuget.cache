@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Op8gS17oK32bwwJHfkW+MHSQGdGZ2kSiRV5D0bRHcMYWX99U8jYblB4/UKnQmoVl98sIwCyS+zXVnvdWzdik9A==",
+  "dgSpecHash": "oJzuXTdTL1LQPKTitMFHOPGzKfAuH+4FnaCbjtANDXnjubIhxcgNQJtjKFXBus2mZMRwQXEr4izVceBxAgcVYw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\charl\\Documents\\Maui\\CarLog\\CarLog\\CarLog.csproj",
+  "projectFilePath": "C:\\Maui\\CarLog-MAUI\\CarLog\\CarLog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\charl\\.nuget\\packages\\googlegson\\2.9.1.1\\googlegson.2.9.1.1.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",

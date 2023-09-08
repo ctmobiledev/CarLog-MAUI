@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CarLog.ViewModels"
+             x:Class="CarLog.EventsPage"
+             Title="Events"
+             BackgroundColor="#3388FF">
+
+    <!--
+    /// SEE THE VIEW MODEL CODE FOR WHY THIS ISN'T SET HERE (THERE'S A PARM FOR THE SELECTED VEHICLE)
+    <ContentPage.BindingContext>
+        <vm:EventsViewModel />
+    </ContentPage.BindingContext>
+    -->
+
+
+    <StackLayout Orientation="Vertical" Margin="5,10,5,10">
+
+        <Grid VerticalOptions="FillAndExpand">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="42" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <!-- Data -->
+
+            <Label x:Name="lblVehicleName" Grid.Row="0" Text="{Binding VehicleName}"  
+                    FontSize="Large" TextColor="White" Margin="0,0,0,0" 
+                    HorizontalTextAlignment="Center" />
+
+            <Label Grid.Row="1" IsVisible="True" x:Name="lblEmptyMsg" 
+                   Text="No maintenance events. Tap &quot;New&quot; to add one." FontSize="Medium" 
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+            <CollectionView Grid.Row="1" x:Name="cvEvents"  
+                    SelectedItem="{Binding SelectedEvent}"
+                    SelectionChangedCommand="{Binding SelectCommand}"
+                    SelectionChangedCommandParameter="{Binding .}"
+                    Margin="15,0,15,0"
+                    SelectionMode="Single">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,15,0,15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="32"/>
+                                <RowDefinition Height="32"/>
+                                <RowDefinition Height="32"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Data -->
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding MaintEventTimestamp}" TextColor="White" FontSize="Medium" HeightRequest="36" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding MaintEventMileage}" TextColor="White" FontSize="Medium" HeightRequest="36" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="2" Grid.Column="0" Text="{Binding MaintEventName}" TextColor="White" FontSize="Medium" HeightRequest="36" VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <StackLayout Grid.Row="2" HeightRequest="50" Margin="0,0,20,30" HorizontalOptions="End">
+                <Button x:Name="btnNew" 
+                        Command="{Binding AddCommand}" 
+                        Text="New" 
+                        HeightRequest="50" WidthRequest="100" />
+            </StackLayout>
+
+        </Grid>
+
+    </StackLayout>
+
+
+</ContentPage>

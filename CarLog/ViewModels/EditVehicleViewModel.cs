@@ -41,11 +41,21 @@ namespace CarLog.ViewModels
 
         public String ActionPrompt { get; set; }
 
-        public String VehicleYearEntry { get; set; }
+        public String VehicleYearEntry { get; set; } = String.Empty;
 
-        public String VehicleMakeEntry { get; set; }
+        public String VehicleMakeEntry { get; set; } = String.Empty;
 
-        public String VehicleModelEntry { get; set; }
+        public String VehicleModelEntry { get; set; } = String.Empty;
+
+        public String VehicleColorEntry { get; set; } = String.Empty;
+
+        public String VehicleMileageEntry { get; set; } = String.Empty;
+
+        public String LicensePlateTagEntry { get; set; } = String.Empty;
+
+        public String LicensePlateStateEntry { get; set; } = String.Empty;
+
+        public String LicensePlateExpiryEntry { get; set; } = String.Empty;
 
 
         public ICommand SaveCommand { private set; get; }               // Shared use by EditVehiclePage
@@ -78,6 +88,12 @@ namespace CarLog.ViewModels
                 VehicleMakeEntry = _CurrentVehicle.VehicleMake;
                 VehicleModelEntry = _CurrentVehicle.VehicleModel;
 
+                VehicleColorEntry = _CurrentVehicle.VehicleColor;
+                VehicleMileageEntry = _CurrentVehicle.VehicleMileage.ToString();
+                LicensePlateTagEntry = _CurrentVehicle.LicensePlateTag;
+                LicensePlateStateEntry = _CurrentVehicle.LicensePlateState;
+                LicensePlateExpiryEntry = _CurrentVehicle.LicensePlateExpiry;
+
                 DeleteButtonVisible = true;
             }
 
@@ -94,29 +110,30 @@ namespace CarLog.ViewModels
                 {
                     CLRepository.Vehicles.Add(new Vehicle
                     {
-                        VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),
-                        VehicleYear = int.Parse(VehicleYearEntry),                  // will need to validate
-                        VehicleMake = VehicleMakeEntry,
-                        VehicleModel = VehicleModelEntry,
-                        VehicleColor = "Splash",
-                        VehicleMileage = 175000,                                    // change to string for entry
-                        LicensePlateTag = "WIN123",
-                        LicensePlateState = "TX",
-                        LicensePlateExpiry = "2023-12-31"
+                        VID = Guid.NewGuid(),
+                        VehicleYear = int.Parse(VehicleYearEntry.ToString()),                  // will need to validate
+                        VehicleMake = VehicleMakeEntry.ToString(),
+                        VehicleModel = VehicleModelEntry.ToString(),
+                        VehicleColor = VehicleColorEntry.ToString(),
+                        VehicleMileage = double.Parse(VehicleMileageEntry.ToString()),
+                        LicensePlateTag = LicensePlateTagEntry.ToString(),
+                        LicensePlateState = LicensePlateStateEntry.ToString(),
+                        LicensePlateExpiry = LicensePlateExpiryEntry.ToString()
                     });
                 }
                 else
                 {
                     var foundVehicle = CLRepository.Vehicles.Where(x => x.VID == _CurrentVehicle.VID).FirstOrDefault();
 
+                    foundVehicle.VID = _CurrentVehicle.VID;
                     foundVehicle.VehicleYear = int.Parse(VehicleYearEntry);
                     foundVehicle.VehicleMake = VehicleMakeEntry;
                     foundVehicle.VehicleModel = VehicleModelEntry;
-                    foundVehicle.VehicleColor = "Splash";
-                    foundVehicle.VehicleMileage = 175000;
-                    foundVehicle.LicensePlateTag = "WIN123";
-                    foundVehicle.LicensePlateState = "TX";
-                    foundVehicle.LicensePlateExpiry = "2023-12-31";
+                    foundVehicle.VehicleColor = VehicleColorEntry;
+                    foundVehicle.VehicleMileage = double.Parse(VehicleMileageEntry);
+                    foundVehicle.LicensePlateTag = LicensePlateTagEntry;
+                    foundVehicle.LicensePlateState = LicensePlateStateEntry;
+                    foundVehicle.LicensePlateExpiry = LicensePlateExpiryEntry;
                 }
 
                 Application.Current.MainPage.Navigation.PopAsync();

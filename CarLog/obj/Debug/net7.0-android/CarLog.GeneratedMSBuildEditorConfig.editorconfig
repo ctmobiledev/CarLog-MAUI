@@ -12,34 +12,64 @@ build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = CarLog
-build_property.ProjectDir = C:\Users\charl\Documents\Maui\CarLog\CarLog\
+build_property.ProjectDir = C:\Maui\CarLog-MAUI\CarLog\
 
-[C:/Users/charl/Documents/Maui/CarLog/CarLog/App.xaml]
+[C:/Maui/CarLog-MAUI/CarLog/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = CarLog.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/charl/Documents/Maui/CarLog/CarLog/AppShell.xaml]
+[C:/Maui/CarLog-MAUI/CarLog/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = CarLog.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/charl/Documents/Maui/CarLog/CarLog/MainPage.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = CarLog.MainPage.xaml
-build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
-build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
-
-[C:/Users/charl/Documents/Maui/CarLog/CarLog/Resources/Styles/Colors.xaml]
+[C:/Maui/CarLog-MAUI/CarLog/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = CarLog.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/charl/Documents/Maui/CarLog/CarLog/Resources/Styles/Styles.xaml]
+[C:/Maui/CarLog-MAUI/CarLog/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = CarLog.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Maui/CarLog-MAUI/CarLog/Views/AboutPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CarLog.Views.AboutPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AboutPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AboutPage.xaml
+
+[C:/Maui/CarLog-MAUI/CarLog/Views/EditVehicleEventPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CarLog.Views.EditVehicleEventPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EditVehicleEventPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EditVehicleEventPage.xaml
+
+[C:/Maui/CarLog-MAUI/CarLog/Views/EditVehiclePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CarLog.Views.EditVehiclePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EditVehiclePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EditVehiclePage.xaml
+
+[C:/Maui/CarLog-MAUI/CarLog/Views/EventsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CarLog.Views.EventsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EventsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EventsPage.xaml
+
+[C:/Maui/CarLog-MAUI/CarLog/Views/HelpPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CarLog.Views.HelpPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\HelpPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\HelpPage.xaml
+
+[C:/Maui/CarLog-MAUI/CarLog/Views/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CarLog.Views.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\MainPage.xaml

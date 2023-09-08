@@ -24028,11 +24028,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\charl\\Documents\\Maui\\CarLog\\CarLog\\CarLog.csproj",
+      "projectUniqueName": "C:\\Maui\\CarLog-MAUI\\CarLog\\CarLog.csproj",
       "projectName": "CarLog",
-      "projectPath": "C:\\Users\\charl\\Documents\\Maui\\CarLog\\CarLog\\CarLog.csproj",
+      "projectPath": "C:\\Maui\\CarLog-MAUI\\CarLog\\CarLog.csproj",
       "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\charl\\Documents\\Maui\\CarLog\\CarLog\\obj\\",
+      "outputPath": "C:\\Maui\\CarLog-MAUI\\CarLog\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

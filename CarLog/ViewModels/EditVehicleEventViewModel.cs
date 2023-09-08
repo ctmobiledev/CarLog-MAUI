@@ -21,11 +21,19 @@ namespace CarLog.ViewModels
 
         public String ActionPrompt { get; set; }
 
-        public String MaintEventTimestampEntry { get; set; }
+        public String MaintEventTimestampEntry { get; set; } = String.Empty;
 
-        public String MaintEventMileageEntry { get; set; }
+        public String MaintEventMileageEntry { get; set; } = String.Empty;
 
-        public String MaintEventNameEntry { get; set; }
+        public String MaintEventNameEntry { get; set; } = String.Empty;
+
+        public String CostEntry { get; set; } = String.Empty;
+
+        public String ServicerEntry { get; set; } = String.Empty;
+
+        public String LocationEntry { get; set; } = String.Empty;
+
+        public String RemarksEntry { get; set; } = String.Empty;
 
 
         public ICommand SaveCommand { private set; get; }               // Shared use by EditVehiclePage
@@ -59,6 +67,10 @@ namespace CarLog.ViewModels
                 MaintEventTimestampEntry = _CurrentEvent.MaintEventTimestamp.ToString();
                 MaintEventNameEntry = _CurrentEvent.MaintEventName;
                 MaintEventMileageEntry = _CurrentEvent.MaintEventMileage.ToString();
+                CostEntry = _CurrentEvent.Cost.ToString("########0.00");
+                ServicerEntry = _CurrentEvent.Servicer;
+                LocationEntry = _CurrentEvent.Location;
+                RemarksEntry = _CurrentEvent.Remarks;
 
                 DeleteButtonVisible = true;
             }
@@ -75,18 +87,29 @@ namespace CarLog.ViewModels
                     _vehicle.VehicleEvents.Add(new VehicleEvent
                     {
                         MaintEventId = Guid.NewGuid(),
-                        VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),
-                        MaintEventTimestamp = DateTime.Parse(MaintEventTimestampEntry),
-                        MaintEventMileage = int.Parse(MaintEventMileageEntry),
-                        MaintEventName = MaintEventNameEntry
+                        VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),     // NEEDS TO BE PASSED IN
+                        MaintEventTimestamp = DateTime.Parse(MaintEventTimestampEntry.ToString()),
+                        MaintEventMileage = int.Parse(MaintEventMileageEntry.ToString()),
+                        MaintEventName = MaintEventNameEntry.ToString(),
+                        Cost = double.Parse(CostEntry.ToString()),
+                        Servicer = ServicerEntry.ToString(),
+                        Location = LocationEntry.ToString(),
+                        Remarks = RemarksEntry.ToString()
                     });
                 }
                 else
                 {
                     var foundEvent = _vehicle.VehicleEvents.Where(x => x.MaintEventId == _CurrentEvent.MaintEventId).FirstOrDefault();
 
+                    foundEvent.MaintEventId = _CurrentEvent.MaintEventId;
+                    foundEvent.VID = _CurrentEvent.VID;
+                    foundEvent.MaintEventTimestamp = DateTime.Parse(MaintEventTimestampEntry);
                     foundEvent.MaintEventMileage = int.Parse(MaintEventMileageEntry);
                     foundEvent.MaintEventName = MaintEventNameEntry;
+                    foundEvent.Cost = double.Parse(CostEntry);
+                    foundEvent.Servicer = ServicerEntry;
+                    foundEvent.Location = LocationEntry;
+                    foundEvent.Remarks = RemarksEntry;
                 }
 
                 Application.Current.MainPage.Navigation.PopAsync();
