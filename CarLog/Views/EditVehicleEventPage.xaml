@@ -36,35 +36,67 @@
                           Text="{Binding MaintEventTimestampEntry}" IsEnabled="False" 
                           BackgroundColor="White" TextColor="Black" />
 
-                    <Label Text="Mileage" FontSize="Medium" TextColor="White" />
-                    <Entry x:Name="entryMileage" FontSize="Large" Margin="0,0,0,10" 
-                          Text="{Binding MaintEventMileageEntry, Mode=TwoWay}"
+                    <Label Text="Mileage*" FontSize="Medium" TextColor="White" />
+                    <Entry x:Name="entryMileage" FontSize="Large" Margin="0,0,0,10" Keyboard="Numeric" MaxLength="6"
+                          Text="{Binding MaintEventMileageEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
                           BackgroundColor="White" TextColor="Black" />
 
-                    <Label Text="Event Name" FontSize="Medium" TextColor="White" />
+                    <Label Text="Event Name*" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryEventName" FontSize="Large" Margin="0,0,0,10" 
-                          Text="{Binding MaintEventNameEntry, Mode=TwoWay}"
-                          BackgroundColor="White" TextColor="Black" />
+                          Text="{Binding MaintEventNameEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                          BackgroundColor="White" TextColor="Black">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
+
+                    <Label Text="Location" FontSize="Medium" TextColor="White" />
+                    <Entry x:Name="entryLocation" FontSize="Large" Margin="0,0,0,10" 
+                          Text="{Binding LocationEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                          BackgroundColor="White" TextColor="Black">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
 
                     <Label Text="Cost" FontSize="Medium" TextColor="White" />
-                    <Entry x:Name="entryCost" FontSize="Large" Margin="0,0,0,10" 
-                          Text="{Binding CostEntry, Mode=TwoWay}"
+                    <Entry x:Name="entryCost" FontSize="Large" Margin="0,0,0,10" Keyboard="Numeric"
+                          Text="{Binding CostEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
                           BackgroundColor="White" TextColor="Black" />
 
                     <Label Text="Servicer" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryServicer" FontSize="Large" Margin="0,0,0,10" 
-                          Text="{Binding ServicerEntry, Mode=TwoWay}"
-                          BackgroundColor="White" TextColor="Black" />
-
-                    <Label Text="Location" FontSize="Medium" TextColor="White" />
-                    <Entry x:Name="entryLocation" FontSize="Large" Margin="0,0,0,10" 
-                          Text="{Binding LocationEntry, Mode=TwoWay}"
-                          BackgroundColor="White" TextColor="Black" />
+                          Text="{Binding ServicerEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                          BackgroundColor="White" TextColor="Black">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
 
                     <Label Text="Remarks" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryRemarks" FontSize="Large" Margin="0,0,0,10" 
-                          Text="{Binding RemarksEntry, Mode=TwoWay}"
-                          BackgroundColor="White" TextColor="Black" />
+                          Text="{Binding RemarksEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                          BackgroundColor="White" TextColor="Black">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeSentence</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
 
                 </VerticalStackLayout>
 

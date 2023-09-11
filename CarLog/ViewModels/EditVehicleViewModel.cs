@@ -87,9 +87,17 @@ namespace CarLog.ViewModels
                 VehicleYearEntry = _CurrentVehicle.VehicleYear.ToString();
                 VehicleMakeEntry = _CurrentVehicle.VehicleMake;
                 VehicleModelEntry = _CurrentVehicle.VehicleModel;
-
                 VehicleColorEntry = _CurrentVehicle.VehicleColor;
-                VehicleMileageEntry = _CurrentVehicle.VehicleMileage.ToString();
+
+                if (_CurrentVehicle.VehicleMileage != 0)
+                {
+                    VehicleMileageEntry = _CurrentVehicle.VehicleMileage.ToString();
+                }
+                else
+                {
+                    VehicleMileageEntry = String.Empty;
+                }
+
                 LicensePlateTagEntry = _CurrentVehicle.LicensePlateTag;
                 LicensePlateStateEntry = _CurrentVehicle.LicensePlateState;
                 LicensePlateExpiryEntry = _CurrentVehicle.LicensePlateExpiry;
@@ -100,25 +108,47 @@ namespace CarLog.ViewModels
 
             SaveCommand = new Command(() =>
             {
+                int intVehicleYear = 0;
+                double dblVehicleMileage = 0.0;
+
                 Debug.WriteLine(">>> SaveCommand fired");
 
                 Debug.WriteLine(">>> VehicleYearEntry = " + VehicleYearEntry);
                 Debug.WriteLine(">>> VehicleMakeEntry = " + VehicleMakeEntry);
                 Debug.WriteLine(">>> VehicleModelEntry = " + VehicleModelEntry);
 
+                if (AllInputsValid() == false)
+                {
+                    return;
+                }
+
+                var yearOk = int.TryParse(VehicleYearEntry, out intVehicleYear);
+                if (!yearOk) 
+                {
+                    VehicleYearEntry = "0";
+                    intVehicleYear = 0; 
+                }
+
+                var mileageOk = double.TryParse(VehicleMileageEntry, out dblVehicleMileage);
+                if (!mileageOk) 
+                {
+                    VehicleMileageEntry = String.Empty;
+                    dblVehicleMileage = 0;
+                }
+
                 if (_CurrentVehicle.VehicleMake == null)
                 {
                     CLRepository.Vehicles.Add(new Vehicle
                     {
                         VID = Guid.NewGuid(),
-                        VehicleYear = int.Parse(VehicleYearEntry.ToString()),                  // will need to validate
-                        VehicleMake = VehicleMakeEntry.ToString(),
-                        VehicleModel = VehicleModelEntry.ToString(),
-                        VehicleColor = VehicleColorEntry.ToString(),
-                        VehicleMileage = double.Parse(VehicleMileageEntry.ToString()),
-                        LicensePlateTag = LicensePlateTagEntry.ToString(),
-                        LicensePlateState = LicensePlateStateEntry.ToString(),
-                        LicensePlateExpiry = LicensePlateExpiryEntry.ToString()
+                        VehicleYear = intVehicleYear,                  // will need to validate
+                        VehicleMake = VehicleMakeEntry.ToString().Trim(),
+                        VehicleModel = VehicleModelEntry.ToString().Trim(),
+                        VehicleColor = VehicleColorEntry.ToString().Trim(),
+                        VehicleMileage = dblVehicleMileage,
+                        LicensePlateTag = LicensePlateTagEntry.ToString().Trim(),
+                        LicensePlateState = LicensePlateStateEntry.ToString().Trim(),
+                        LicensePlateExpiry = LicensePlateExpiryEntry.ToString().Trim()
                     });
                 }
                 else
@@ -126,14 +156,14 @@ namespace CarLog.ViewModels
                     var foundVehicle = CLRepository.Vehicles.Where(x => x.VID == _CurrentVehicle.VID).FirstOrDefault();
 
                     foundVehicle.VID = _CurrentVehicle.VID;
-                    foundVehicle.VehicleYear = int.Parse(VehicleYearEntry);
-                    foundVehicle.VehicleMake = VehicleMakeEntry;
-                    foundVehicle.VehicleModel = VehicleModelEntry;
-                    foundVehicle.VehicleColor = VehicleColorEntry;
-                    foundVehicle.VehicleMileage = double.Parse(VehicleMileageEntry);
-                    foundVehicle.LicensePlateTag = LicensePlateTagEntry;
-                    foundVehicle.LicensePlateState = LicensePlateStateEntry;
-                    foundVehicle.LicensePlateExpiry = LicensePlateExpiryEntry;
+                    foundVehicle.VehicleYear = intVehicleYear;
+                    foundVehicle.VehicleMake = VehicleMakeEntry.Trim();
+                    foundVehicle.VehicleModel = VehicleModelEntry.Trim();
+                    foundVehicle.VehicleColor = VehicleColorEntry.Trim();
+                    foundVehicle.VehicleMileage = dblVehicleMileage;
+                    foundVehicle.LicensePlateTag = LicensePlateTagEntry.Trim();
+                    foundVehicle.LicensePlateState = LicensePlateStateEntry.Trim();
+                    foundVehicle.LicensePlateExpiry = LicensePlateExpiryEntry.Trim();
                 }
 
                 Application.Current.MainPage.Navigation.PopAsync();
@@ -153,6 +183,35 @@ namespace CarLog.ViewModels
 
 
         }
+
+        private Boolean AllInputsValid()
+        {
+
+            if (VehicleYearEntry == String.Empty)
+            {
+                Application.Current.MainPage.DisplayAlert("Missing Input",
+                                "Please enter a year for the vehicle.", "OK");
+                return false;
+            }
+
+            if (VehicleMakeEntry == String.Empty)
+            {
+                Application.Current.MainPage.DisplayAlert("Missing Input",
+                                "Please enter a make for the vehicle.", "OK");
+                return false;
+            }
+
+            if (VehicleModelEntry == String.Empty)
+            {
+                Application.Current.MainPage.DisplayAlert("Missing Input",
+                                "Please enter a model for the vehicle.", "OK");
+                return false;
+            }
+
+            return true;
+
+        }
+
 
         private async void ConfirmDelete()
         {

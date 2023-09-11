@@ -78,9 +78,40 @@ namespace CarLog.ViewModels
             SaveCommand = new Command(() => {
                 Debug.WriteLine(">>> SaveCommand fired");
 
+                DateTime dateTimestamp;
+                int intMileage;
+                double dblCost;
+
                 Debug.WriteLine(">>> MaintEventTimestampEntry = " + MaintEventTimestampEntry);
                 Debug.WriteLine(">>> MaintEventMileageEntry = " + MaintEventMileageEntry);
                 Debug.WriteLine(">>> MaintEventNameEntry = " + MaintEventNameEntry);
+
+                if (AllInputsValid() == false)
+                {
+                    return;
+                }
+
+                var timestampOk = DateTime.TryParse(MaintEventTimestampEntry, out dateTimestamp);
+                if (!timestampOk)
+                {
+                    MaintEventTimestampEntry = DateTime.Now.ToString();
+                    dateTimestamp = DateTime.Now;
+                }
+
+                var mileageOk = int.TryParse(MaintEventMileageEntry, out intMileage);
+                if (!mileageOk)
+                {
+                    MaintEventMileageEntry = "0";
+                    intMileage = 0;
+                }
+
+                var costOk = double.TryParse(CostEntry, out dblCost);
+                if (!costOk)
+                {
+                    CostEntry = String.Empty;
+                    dblCost = 0;
+                }
+
 
                 if (_CurrentEvent.MaintEventName == null)
                 {
@@ -88,13 +119,13 @@ namespace CarLog.ViewModels
                     {
                         MaintEventId = Guid.NewGuid(),
                         VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),     // NEEDS TO BE PASSED IN
-                        MaintEventTimestamp = DateTime.Parse(MaintEventTimestampEntry.ToString()),
-                        MaintEventMileage = int.Parse(MaintEventMileageEntry.ToString()),
-                        MaintEventName = MaintEventNameEntry.ToString(),
-                        Cost = double.Parse(CostEntry.ToString()),
-                        Servicer = ServicerEntry.ToString(),
-                        Location = LocationEntry.ToString(),
-                        Remarks = RemarksEntry.ToString()
+                        MaintEventTimestamp = dateTimestamp,
+                        MaintEventMileage = intMileage,
+                        MaintEventName = MaintEventNameEntry.ToString().Trim(),
+                        Cost = dblCost,
+                        Servicer = ServicerEntry.ToString().Trim(),
+                        Location = LocationEntry.ToString().Trim(),
+                        Remarks = RemarksEntry.ToString().Trim()
                     });
                 }
                 else
@@ -103,13 +134,13 @@ namespace CarLog.ViewModels
 
                     foundEvent.MaintEventId = _CurrentEvent.MaintEventId;
                     foundEvent.VID = _CurrentEvent.VID;
-                    foundEvent.MaintEventTimestamp = DateTime.Parse(MaintEventTimestampEntry);
-                    foundEvent.MaintEventMileage = int.Parse(MaintEventMileageEntry);
-                    foundEvent.MaintEventName = MaintEventNameEntry;
-                    foundEvent.Cost = double.Parse(CostEntry);
-                    foundEvent.Servicer = ServicerEntry;
-                    foundEvent.Location = LocationEntry;
-                    foundEvent.Remarks = RemarksEntry;
+                    foundEvent.MaintEventTimestamp = dateTimestamp;
+                    foundEvent.MaintEventMileage = intMileage;
+                    foundEvent.MaintEventName = MaintEventNameEntry.Trim();
+                    foundEvent.Cost = dblCost;
+                    foundEvent.Servicer = ServicerEntry.Trim();
+                    foundEvent.Location = LocationEntry.Trim();
+                    foundEvent.Remarks = RemarksEntry.Trim();
                 }
 
                 Application.Current.MainPage.Navigation.PopAsync();
@@ -125,6 +156,27 @@ namespace CarLog.ViewModels
                 Debug.WriteLine(">>> DeleteCommand fired");
                 ConfirmDelete();
             });
+
+        }
+
+        private Boolean AllInputsValid()
+        {
+
+            if (MaintEventMileageEntry == String.Empty)
+            {
+                Application.Current.MainPage.DisplayAlert("Missing Input",
+                                "Please enter the mileage for the event.", "OK");
+                return false;
+            }
+
+            if (MaintEventNameEntry == String.Empty)
+            {
+                Application.Current.MainPage.DisplayAlert("Missing Input",
+                                "Please enter a name for the event.", "OK");
+                return false;
+            }
+
+            return true;
 
         }
 

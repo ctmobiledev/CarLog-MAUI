@@ -54,45 +54,93 @@
 
                 <VerticalStackLayout Margin="20,0,20,0">
 
-                    <Label Text="Year" FontSize="Medium" TextColor="White" />
-                    <Entry x:Name="entryYear" FontSize="Large" Margin="0,0,0,10" 
-                           Text="{Binding VehicleYearEntry, Mode=TwoWay}"
+                    <Label Text="Year*" FontSize="Medium" TextColor="White" />
+                    <Entry x:Name="entryYear" FontSize="Large" Margin="0,0,0,10" Keyboard="Numeric" MaxLength="4"
+                           Text="{Binding VehicleYearEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
                            BackgroundColor="White" TextColor="Black" />
 
-                    <Label Text="Make" FontSize="Medium" TextColor="White" />
+                    <Label Text="Make*" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryMake" FontSize="Large" Margin="0,0,0,10" 
-                           Text="{Binding VehicleMakeEntry, Mode=TwoWay}"
-                           BackgroundColor="White" TextColor="Black" />
+                           Text="{Binding VehicleMakeEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                           BackgroundColor="White" TextColor="Black">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
                     
-                    <Label Text="Model" FontSize="Medium" TextColor="White" />
+                    <Label Text="Model*" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryModel" FontSize="Large" Margin="0,0,0,10" 
-                           Text="{Binding VehicleModelEntry, Mode=TwoWay}"
-                           BackgroundColor="White" TextColor="Black" />
+                           Text="{Binding VehicleModelEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                           BackgroundColor="White" TextColor="Black">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
 
                     <Label Text="Color" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryColor" FontSize="Large" Margin="0,0,0,10" 
-                           Text="{Binding VehicleColorEntry, Mode=TwoWay}"
-                           BackgroundColor="White" TextColor="Black" />
+                           Text="{Binding VehicleColorEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                           BackgroundColor="White" TextColor="Black">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
 
                     <Label Text="Mileage" FontSize="Medium" TextColor="White" />
-                    <Entry x:Name="entryMileage" FontSize="Large" Margin="0,0,0,10" 
-                           Text="{Binding VehicleMileageEntry, Mode=TwoWay}"
+                    <Entry x:Name="entryMileage" FontSize="Large" Margin="0,0,0,10" Keyboard="Numeric" MaxLength="6"
+                           Text="{Binding VehicleMileageEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
                            BackgroundColor="White" TextColor="Black" />
 
                     <Label Text="License Plate Tag" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryLpTag" FontSize="Large" Margin="0,0,0,10"
-                           Text="{Binding LicensePlateTagEntry, Mode=TwoWay}"
-                           BackgroundColor="White" TextColor="Black" />
+                           Text="{Binding LicensePlateTagEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                           BackgroundColor="White" TextColor="Black">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
 
                     <Label Text="State" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryLpState" FontSize="Large" Margin="0,0,0,10"
-                           Text="{Binding LicensePlateStateEntry, Mode=TwoWay}"
-                           BackgroundColor="White" TextColor="Black" />
+                           Text="{Binding LicensePlateStateEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                           BackgroundColor="White" TextColor="Black">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
 
                     <Label Text="Expiry" FontSize="Medium" TextColor="White" />
                     <Entry x:Name="entryLpExpiry" FontSize="Large" Margin="0,0,0,10"
-                           Text="{Binding LicensePlateExpiryEntry, Mode=TwoWay}"
-                           BackgroundColor="White" TextColor="Black" />
+                           Text="{Binding LicensePlateExpiryEntry, Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                           BackgroundColor="White" TextColor="Black">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
 
                 </VerticalStackLayout>
 
