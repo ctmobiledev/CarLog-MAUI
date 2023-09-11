@@ -43,10 +43,8 @@
 
         <!-- UPPER PART: LOGO  -->
 
-        <StackLayout Orientation="Vertical" BackgroundColor="Orange" HeightRequest="200" Margin="0,0,0,20">
-
-            <Label Text="LOGO HERE" FontSize="60" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
-
+        <StackLayout Orientation="Vertical" HeightRequest="200" Margin="0,0,0,20">
+            <Image Source="carloglogo1.png" HeightRequest="200" />
         </StackLayout>
 
         <!-- LOWER PART: VEHICLES LIST  -->

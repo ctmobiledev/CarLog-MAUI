@@ -5,13 +5,27 @@
              Title="Help"
              BackgroundColor="#3388FF">
 
-    <VerticalStackLayout Margin="5,10,5,10">
-        <Label 
-            Text="Help...How to use CarLog"
-            TextColor="White"
-            FontSize="Medium"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+
+        <VerticalStackLayout VerticalOptions="Center"
+                         HorizontalOptions="Center">
+            <Label Text="How To Use CarLog" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+
+            <VerticalStackLayout Margin="30,0">
+                <Label Text="CarLog is a simple system for recording events – maintenance or problems – associated with one or more vehicles." 
+               TextColor="White" FontSize="Medium" Margin="0,15,0,15"/>
+                <Label Text="The home screen shows any vehicles you’ve defined to the app. Use the “New” button to add new vehicles, or tap an existing vehicle name to view or maintain a list of “events”, the “View Events” option, to track services performed, incidents (such as accidents or flat tires), the names of servicers, and cost numbers, if applicable." 
+               TextColor="White" FontSize="Medium" Margin="0,0,0,15"/>
+                <Label Text="The “Edit Vehicle” screen lets you update or modify an existing vehicle, or delete it if it’s no longer in use." 
+               TextColor="White" FontSize="Medium" Margin="0,0,0,15"/>
+                <Label Text="The design of this app is intentionally simple and “no frills”. It is a demonstration project using Microsoft’s .NET MAUI technology." 
+               TextColor="White" FontSize="Medium" Margin="0,0,0,15"/>
+                <Label Text="(This project is NOT endorsed by Microsoft.)" 
+               TextColor="White" FontSize="Small" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
 
 </ContentPage>

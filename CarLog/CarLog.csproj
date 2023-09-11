@@ -15,7 +15,7 @@
 		<ApplicationTitle>CarLog</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.carlog</ApplicationId>
+		<ApplicationId>sss.carlog</ApplicationId>
 		<ApplicationIdGuid>78ba5315-bf0f-4e05-994b-5e0ff4105bcf</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -33,10 +33,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\carlogicon1.png" Color="#3388FF" BaseSize="64,64" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\carloglogo1.png" Color="#3388FF" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -50,7 +50,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\carlogicon1.png" />
+	  <None Remove="Resources\Images\carloglogo1.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Realm" Version="11.4.0" />
 	</ItemGroup>
 
 	<ItemGroup>
