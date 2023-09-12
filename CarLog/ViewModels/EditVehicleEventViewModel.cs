@@ -177,22 +177,31 @@ namespace CarLog.ViewModels
                     // Just update/overwrite the vehicle since we already have it
                     var foundVehicleRealm = realm.All<VehicleRealm>().Where(x => x.VID == _vehicle.VID).FirstOrDefault();
 
-                    var foundEventRealm = foundVehicleRealm.VehicleEvents.Where(x => x.MaintEventId == _CurrentEvent.MaintEventId).FirstOrDefault();
-
-                    realm.Write(() =>
+                    if (foundVehicleRealm  != null)
                     {
-                        foundEventRealm.MaintEventId = _CurrentEvent.MaintEventId;
-                        foundEventRealm.VID = _CurrentEvent.VID;
-                        foundEventRealm.MaintEventTimestamp = dateTimestamp.ToString();          // Realm doesn't support DateTime yet, so using a String
-                        foundEventRealm.MaintEventMileage = intMileage;
-                        foundEventRealm.MaintEventName = MaintEventNameEntry.Trim();
-                        foundEventRealm.Cost = dblCost;
-                        foundEventRealm.Servicer = ServicerEntry.Trim();
-                        foundEventRealm.Location = LocationEntry.Trim();
-                        foundEventRealm.Remarks = RemarksEntry.Trim();
 
-                        Debug.WriteLine(">>> Realm existing vehicle event updated: " + MaintEventNameEntry);
-                    });
+                        var foundEventRealm = foundVehicleRealm.VehicleEvents.Where(x => x.MaintEventId == _CurrentEvent.MaintEventId).FirstOrDefault();
+
+                        if (foundEventRealm != null)
+                        {
+                            realm.Write(() =>
+                            {
+                                foundEventRealm.MaintEventId = _CurrentEvent.MaintEventId;
+                                foundEventRealm.VID = _CurrentEvent.VID;
+                                foundEventRealm.MaintEventTimestamp = dateTimestamp.ToString();          // Realm doesn't support DateTime yet, so using a String
+                                foundEventRealm.MaintEventMileage = intMileage;
+                                foundEventRealm.MaintEventName = MaintEventNameEntry.Trim();
+                                foundEventRealm.Cost = dblCost;
+                                foundEventRealm.Servicer = ServicerEntry.Trim();
+                                foundEventRealm.Location = LocationEntry.Trim();
+                                foundEventRealm.Remarks = RemarksEntry.Trim();
+
+                                Debug.WriteLine(">>> Realm existing vehicle event updated: " + MaintEventNameEntry);
+                            });
+
+                        }
+
+                    }
 
                     CLRepository.PrintAllMaintEvents(foundVehicleRealm);
 

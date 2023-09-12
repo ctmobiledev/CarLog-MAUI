@@ -160,33 +160,41 @@ namespace CarLog.ViewModels
                 {
                     var foundVehicle = CLRepository.Vehicles.Where(x => x.VID == _CurrentVehicle.VID).FirstOrDefault();
 
-                    foundVehicle.VID = _CurrentVehicle.VID;
-                    foundVehicle.VehicleYear = intVehicleYear;
-                    foundVehicle.VehicleMake = VehicleMakeEntry.Trim();
-                    foundVehicle.VehicleModel = VehicleModelEntry.Trim();
-                    foundVehicle.VehicleColor = VehicleColorEntry.Trim();
-                    foundVehicle.VehicleMileage = dblVehicleMileage;
-                    foundVehicle.LicensePlateTag = LicensePlateTagEntry.Trim();
-                    foundVehicle.LicensePlateState = LicensePlateStateEntry.Trim();
-                    foundVehicle.LicensePlateExpiry = LicensePlateExpiryEntry.Trim();
-
-
-                    realm.Write(() =>
+                    if (foundVehicle != null)
                     {
+
+                        foundVehicle.VID = _CurrentVehicle.VID;
+                        foundVehicle.VehicleYear = intVehicleYear;
+                        foundVehicle.VehicleMake = VehicleMakeEntry.Trim();
+                        foundVehicle.VehicleModel = VehicleModelEntry.Trim();
+                        foundVehicle.VehicleColor = VehicleColorEntry.Trim();
+                        foundVehicle.VehicleMileage = dblVehicleMileage;
+                        foundVehicle.LicensePlateTag = LicensePlateTagEntry.Trim();
+                        foundVehicle.LicensePlateState = LicensePlateStateEntry.Trim();
+                        foundVehicle.LicensePlateExpiry = LicensePlateExpiryEntry.Trim();
+
+
                         var foundVehicleRealm = realm.All<VehicleRealm>().Where(x => x.VID == _CurrentVehicle.VID).FirstOrDefault(); ;
 
-                        foundVehicleRealm.VID = _CurrentVehicle.VID;
-                        foundVehicleRealm.VehicleYear = intVehicleYear;
-                        foundVehicleRealm.VehicleMake = VehicleMakeEntry.Trim();
-                        foundVehicleRealm.VehicleModel = VehicleModelEntry.Trim();
-                        foundVehicleRealm.VehicleColor = VehicleColorEntry.Trim();
-                        foundVehicleRealm.VehicleMileage = dblVehicleMileage;
-                        foundVehicleRealm.LicensePlateTag = LicensePlateTagEntry.Trim();
-                        foundVehicleRealm.LicensePlateState = LicensePlateStateEntry.Trim();
-                        foundVehicleRealm.LicensePlateExpiry = LicensePlateExpiryEntry.Trim();
+                        if (foundVehicleRealm != null)
+                        {
+                            realm.Write(() =>
+                            {
+                                foundVehicleRealm.VID = _CurrentVehicle.VID;
+                                foundVehicleRealm.VehicleYear = intVehicleYear;
+                                foundVehicleRealm.VehicleMake = VehicleMakeEntry.Trim();
+                                foundVehicleRealm.VehicleModel = VehicleModelEntry.Trim();
+                                foundVehicleRealm.VehicleColor = VehicleColorEntry.Trim();
+                                foundVehicleRealm.VehicleMileage = dblVehicleMileage;
+                                foundVehicleRealm.LicensePlateTag = LicensePlateTagEntry.Trim();
+                                foundVehicleRealm.LicensePlateState = LicensePlateStateEntry.Trim();
+                                foundVehicleRealm.LicensePlateExpiry = LicensePlateExpiryEntry.Trim();
 
-                        Debug.WriteLine(">>> Realm existing vehicle updated: " + VehicleMakeEntry);
-                    });
+                                Debug.WriteLine(">>> Realm existing vehicle updated: " + VehicleMakeEntry);
+                            });
+                        }
+
+                    }
 
                 }
 
