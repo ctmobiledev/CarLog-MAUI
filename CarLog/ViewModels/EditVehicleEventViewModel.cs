@@ -1,5 +1,7 @@
 ﻿using CarLog.Models;
+using CarLog.ModelsRealm;
 using CarLog.Repository;
+using Realms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +17,9 @@ namespace CarLog.ViewModels
     public class EditVehicleEventViewModel : INotifyPropertyChanged
     {
 
-        public static Vehicle _vehicle;
+        private readonly Realm realm;
+
+        public static Vehicle _vehicle;     // set from outside, in MainViewModel, SelectCommand
 
         public static VehicleEvent _CurrentEvent { get; set; }
 
@@ -46,6 +50,8 @@ namespace CarLog.ViewModels
 
 
         public EditVehicleEventViewModel(VehicleEvent CurrentEvent) {
+
+            realm = RealmService.GetRealm();
 
             _CurrentEvent = CurrentEvent;
 
@@ -118,7 +124,7 @@ namespace CarLog.ViewModels
                     _vehicle.VehicleEvents.Add(new VehicleEvent
                     {
                         MaintEventId = Guid.NewGuid(),
-                        VID = new Guid("e57b36ee-5abd-465c-ab8c-87d3cca3545c"),     // NEEDS TO BE PASSED IN
+                        VID = _vehicle.VID,      
                         MaintEventTimestamp = dateTimestamp,
                         MaintEventMileage = intMileage,
                         MaintEventName = MaintEventNameEntry.ToString().Trim(),
@@ -127,21 +133,72 @@ namespace CarLog.ViewModels
                         Location = LocationEntry.ToString().Trim(),
                         Remarks = RemarksEntry.ToString().Trim()
                     });
+
+                    realm.Write(() =>
+                    {
+                        // Just update/overwrite the vehicle since we already have it
+                        var foundVehicleRealm = realm.All<VehicleRealm>().Where(x => x.VID == _vehicle.VID).FirstOrDefault(); ;
+
+                        foundVehicleRealm.VehicleEvents.Add(new VehicleEventRealm
+                        {
+                            MaintEventId = Guid.NewGuid(),
+                            VID = _vehicle.VID,      
+                            MaintEventTimestamp = dateTimestamp.ToString(),             // Realm does not support DateTime yet, so we'll use a String for now
+                            MaintEventMileage = intMileage,
+                            MaintEventName = MaintEventNameEntry.ToString().Trim(),
+                            Cost = dblCost,
+                            Servicer = ServicerEntry.ToString().Trim(),
+                            Location = LocationEntry.ToString().Trim(),
+                            Remarks = RemarksEntry.ToString().Trim()
+                        });
+
+                        CLRepository.PrintAllMaintEvents(foundVehicleRealm);
+
+                        Debug.WriteLine(">>> Realm new vehicle event added: " + MaintEventNameEntry);
+                    });
                 }
                 else
                 {
-                    var foundEvent = _vehicle.VehicleEvents.Where(x => x.MaintEventId == _CurrentEvent.MaintEventId).FirstOrDefault();
+
+                    // _vehicle is CLRepository's object which the UI is bound to (for now)
+                    var foundEvent = _vehicle.VehicleEvents.Where(x => x.MaintEventId == _CurrentEvent.MaintEventId).FirstOrDefault();      
 
                     foundEvent.MaintEventId = _CurrentEvent.MaintEventId;
                     foundEvent.VID = _CurrentEvent.VID;
-                    foundEvent.MaintEventTimestamp = dateTimestamp;
+                    foundEvent.MaintEventTimestamp = dateTimestamp;           
                     foundEvent.MaintEventMileage = intMileage;
                     foundEvent.MaintEventName = MaintEventNameEntry.Trim();
                     foundEvent.Cost = dblCost;
                     foundEvent.Servicer = ServicerEntry.Trim();
                     foundEvent.Location = LocationEntry.Trim();
                     foundEvent.Remarks = RemarksEntry.Trim();
+
+
+                    // Just update/overwrite the vehicle since we already have it
+                    var foundVehicleRealm = realm.All<VehicleRealm>().Where(x => x.VID == _vehicle.VID).FirstOrDefault();
+
+                    var foundEventRealm = foundVehicleRealm.VehicleEvents.Where(x => x.MaintEventId == _CurrentEvent.MaintEventId).FirstOrDefault();
+
+                    realm.Write(() =>
+                    {
+                        foundEventRealm.MaintEventId = _CurrentEvent.MaintEventId;
+                        foundEventRealm.VID = _CurrentEvent.VID;
+                        foundEventRealm.MaintEventTimestamp = dateTimestamp.ToString();          // Realm doesn't support DateTime yet, so using a String
+                        foundEventRealm.MaintEventMileage = intMileage;
+                        foundEventRealm.MaintEventName = MaintEventNameEntry.Trim();
+                        foundEventRealm.Cost = dblCost;
+                        foundEventRealm.Servicer = ServicerEntry.Trim();
+                        foundEventRealm.Location = LocationEntry.Trim();
+                        foundEventRealm.Remarks = RemarksEntry.Trim();
+
+                        Debug.WriteLine(">>> Realm existing vehicle event updated: " + MaintEventNameEntry);
+                    });
+
+                    CLRepository.PrintAllMaintEvents(foundVehicleRealm);
+
                 }
+
+                // Update Realm here; we have the _vehicle which was passed in
 
                 Application.Current.MainPage.Navigation.PopAsync();
             });
@@ -202,6 +259,31 @@ namespace CarLog.ViewModels
                         await Application.Current.MainPage.DisplayAlert("Delete Event",
                             "Event did not delete successfully.", "OK");
                     }
+                }
+
+
+                // Update/overwrite the events list
+
+                var foundVehicleRealm = realm.All<VehicleRealm>().Where(x => x.VID == _vehicle.VID).FirstOrDefault(); ;
+                var foundEventRealm = foundVehicleRealm.VehicleEvents.Where(x => x.MaintEventId == _CurrentEvent.MaintEventId).FirstOrDefault();
+
+                if (foundVehicleRealm != null)
+                {
+                    try
+                    {
+                        realm.Write(() =>
+                        {
+                            foundVehicleRealm.VehicleEvents.Remove(foundEventRealm);
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Delete Event",
+                            "Event did not delete successfully.", "OK");
+                    }
+
+                    Debug.WriteLine(">>> ConfirmDelete - Event deleted successfully: " + _CurrentEvent.MaintEventId + " " +
+                        _CurrentEvent.MaintEventName);
                 }
 
                 await Application.Current.MainPage.Navigation.PopAsync();

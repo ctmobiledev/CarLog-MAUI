@@ -1,4 +1,5 @@
 ﻿using CarLog.Models;
+using CarLog.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,7 @@ namespace CarLog.ViewModels
         }
 
         public EventsViewModel(Vehicle vehicle, CollectionView cview) {
+
             _vehicle = vehicle;
 
             VehicleName = _vehicle.VehicleYear.ToString() 

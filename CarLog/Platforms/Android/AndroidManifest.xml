@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="sss.carlog" android:versionCode="1" android:versionName="1.0.0">
 	<!--
 	Doing custom icons:
 	https://learn.microsoft.com/en-us/dotnet/maui/user-interface/images/app-icons?tabs=android
@@ -16,7 +16,8 @@
 	Since this project has a "carlogicon1.png" file, the root name "carlogicon1" was subbed in after "@mipmap". The resulting
     line, below, compiles.
 	-->
-	<application android:allowBackup="true" android:icon="@mipmap/carlogicon1" android:roundIcon="@mipmap/carlogicon1_round" android:supportsRtl="true"></application>
+	<application android:allowBackup="true" android:icon="@mipmap/carlogicon1" android:supportsRtl="true"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-sdk android:minSdkVersion="31" android:targetSdkVersion="33" />
 </manifest>

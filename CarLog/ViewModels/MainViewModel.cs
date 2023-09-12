@@ -34,6 +34,8 @@ namespace CarLog.ViewModels
 
         public MainViewModel(CollectionView cview) {
 
+            CLRepository.LoadAllVehicles();
+
             AddCommand = new Command(() => {
                 SelectedVehicle = new Vehicle();
                 Debug.WriteLine(">>> AddCommand fired");

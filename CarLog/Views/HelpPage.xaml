@@ -9,6 +9,8 @@
 
         <VerticalStackLayout VerticalOptions="Center"
                          HorizontalOptions="Center">
+            <Image Source="carloglogo1.png" HeightRequest="200" />
+
             <Label Text="How To Use CarLog" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" FontAttributes="Bold" />
 
             <VerticalStackLayout Margin="30,0">
@@ -21,7 +23,7 @@
                 <Label Text="The design of this app is intentionally simple and “no frills”. It is a demonstration project using Microsoft’s .NET MAUI technology." 
                TextColor="White" FontSize="Medium" Margin="0,0,0,15"/>
                 <Label Text="(This project is NOT endorsed by Microsoft.)" 
-               TextColor="White" FontSize="Small" />
+               TextColor="White" FontSize="Small" Margin="0,0,0,15"/>
             </VerticalStackLayout>
 
         </VerticalStackLayout>

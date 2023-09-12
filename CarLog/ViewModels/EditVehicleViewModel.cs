@@ -1,5 +1,7 @@
 ﻿using CarLog.Models;
+using CarLog.ModelsRealm;
 using CarLog.Repository;
+using Realms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,27 +17,7 @@ namespace CarLog.ViewModels
     public class EditVehicleViewModel : INotifyPropertyChanged
     {
 
-        /**
-        public Guid VID { get; set; }
-
-        public Int32 VehicleYear { get; set; }
-
-        public String VehicleMake { get; set; }
-
-        public String VehicleModel { get; set; }
-
-        public String VehicleColor { get; set; }
-
-        public Double VehicleMileage { get; set; }
-
-        public String LicensePlateTag { get; set; }
-
-        public String LicensePlateState { get; set; }
-
-        public String LicensePlateExpiry { get; set; }
-
-        public List<VehicleEvent> VehicleEvents { get; set; } = new List<VehicleEvent>();
-        **/
+        private readonly Realm realm;
 
         private Vehicle _CurrentVehicle { get; set; }
 
@@ -69,6 +51,8 @@ namespace CarLog.ViewModels
 
         public EditVehicleViewModel(Vehicle CurrentVehicle)
         {
+
+            realm = RealmService.GetRealm();
 
             _CurrentVehicle = CurrentVehicle;
             Debug.WriteLine(">>> EditVehicleViewModel fired, _CurrentVehicle = " +
@@ -138,9 +122,11 @@ namespace CarLog.ViewModels
 
                 if (_CurrentVehicle.VehicleMake == null)
                 {
+                    var addedVehicleGuid = Guid.NewGuid();
+
                     CLRepository.Vehicles.Add(new Vehicle
                     {
-                        VID = Guid.NewGuid(),
+                        VID = addedVehicleGuid,
                         VehicleYear = intVehicleYear,                  // will need to validate
                         VehicleMake = VehicleMakeEntry.ToString().Trim(),
                         VehicleModel = VehicleModelEntry.ToString().Trim(),
@@ -150,6 +136,25 @@ namespace CarLog.ViewModels
                         LicensePlateState = LicensePlateStateEntry.ToString().Trim(),
                         LicensePlateExpiry = LicensePlateExpiryEntry.ToString().Trim()
                     });
+
+                    realm.Write(() =>
+                    {
+                        realm.Add<VehicleRealm>(new VehicleRealm
+                        {
+                            VID = addedVehicleGuid,
+                            VehicleYear = intVehicleYear,
+                            VehicleMake = VehicleMakeEntry.ToString().Trim(),
+                            VehicleModel = VehicleModelEntry.ToString().Trim(),
+                            VehicleColor = VehicleColorEntry.ToString().Trim(),
+                            VehicleMileage = dblVehicleMileage,
+                            LicensePlateTag = LicensePlateTagEntry.ToString().Trim(),
+                            LicensePlateState = LicensePlateStateEntry.ToString().Trim(),
+                            LicensePlateExpiry = LicensePlateExpiryEntry.ToString().Trim()
+                        });
+
+                        Debug.WriteLine(">>> Realm new vehicle added: " + VehicleMakeEntry);
+                    });
+
                 }
                 else
                 {
@@ -164,6 +169,25 @@ namespace CarLog.ViewModels
                     foundVehicle.LicensePlateTag = LicensePlateTagEntry.Trim();
                     foundVehicle.LicensePlateState = LicensePlateStateEntry.Trim();
                     foundVehicle.LicensePlateExpiry = LicensePlateExpiryEntry.Trim();
+
+
+                    realm.Write(() =>
+                    {
+                        var foundVehicleRealm = realm.All<VehicleRealm>().Where(x => x.VID == _CurrentVehicle.VID).FirstOrDefault(); ;
+
+                        foundVehicleRealm.VID = _CurrentVehicle.VID;
+                        foundVehicleRealm.VehicleYear = intVehicleYear;
+                        foundVehicleRealm.VehicleMake = VehicleMakeEntry.Trim();
+                        foundVehicleRealm.VehicleModel = VehicleModelEntry.Trim();
+                        foundVehicleRealm.VehicleColor = VehicleColorEntry.Trim();
+                        foundVehicleRealm.VehicleMileage = dblVehicleMileage;
+                        foundVehicleRealm.LicensePlateTag = LicensePlateTagEntry.Trim();
+                        foundVehicleRealm.LicensePlateState = LicensePlateStateEntry.Trim();
+                        foundVehicleRealm.LicensePlateExpiry = LicensePlateExpiryEntry.Trim();
+
+                        Debug.WriteLine(">>> Realm existing vehicle updated: " + VehicleMakeEntry);
+                    });
+
                 }
 
                 Application.Current.MainPage.Navigation.PopAsync();
@@ -180,8 +204,6 @@ namespace CarLog.ViewModels
                 Debug.WriteLine(">>> DeleteCommand fired");
                 ConfirmDelete();
             });
-
-
         }
 
         private Boolean AllInputsValid()
@@ -230,10 +252,30 @@ namespace CarLog.ViewModels
                     if (!deleteOk)
                     {
                         // This should never happen 
+                        Debug.WriteLine(">>> ConfirmDelete - Delete Vehicle: Vehicle did not delete successfully.");
+                    }
+                }
 
+
+                var foundVehicleRealm = realm.All<VehicleRealm>().Where(x => x.VID == _CurrentVehicle.VID).FirstOrDefault(); ;
+
+                if (foundVehicleRealm != null)
+                {
+                    try
+                    {
+                        realm.Write(() =>
+                        {
+                            realm.Remove(foundVehicleRealm);            // returns a void, so we have to check this way
+                        });
+                    }
+                    catch (Exception ex)
+                    {
                         await Application.Current.MainPage.DisplayAlert("Delete Vehicle",
                             "Vehicle did not delete successfully.", "OK");
                     }
+
+                    Debug.WriteLine(">>> ConfirmDelete - Vehicle deleted successfully: " + _CurrentVehicle.VehicleYear + " " +
+                        _CurrentVehicle.VehicleMake + " " + _CurrentVehicle.VehicleModel);
                 }
 
                 await Application.Current.MainPage.Navigation.PopAsync();

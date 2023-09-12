@@ -26,7 +26,7 @@
             <!-- Data -->
 
             <Label Grid.Row="0" Text="{Binding ActionPrompt}" Margin="0,0,0,10" 
-                   FontSize="Large" TextColor="White" HorizontalTextAlignment="Center" />
+                   FontSize="Small" TextColor="White" HorizontalTextAlignment="Center" />
 
             <!-- Entry Fields 
             

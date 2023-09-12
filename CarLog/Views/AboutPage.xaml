@@ -7,8 +7,8 @@
 
     <VerticalStackLayout VerticalOptions="Center"
                          HorizontalOptions="Center">
-        <Label Text="CarLog" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" FontAttributes="Bold" />
-        
+        <Image Source="carloglogo1.png" HeightRequest="200" />
+
         <Label Text="Version 1.0.0" TextColor="White" FontSize="Medium" HorizontalTextAlignment="Center" Margin="0,15,0,0"/>
         <Label Text="Charles Tatum II" TextColor="White" FontSize="Medium" HorizontalTextAlignment="Center" />
         <Label Text="Copyright 2023" TextColor="White" FontSize="Medium" HorizontalTextAlignment="Center" />
