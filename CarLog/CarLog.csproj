@@ -31,6 +31,11 @@
 		<DefaultLanguage>en-us</DefaultLanguage>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
+	  <CodesignKey>Apple Development: Created via API (3JC4S8LPQ7)</CodesignKey>
+	  <CodesignProvision>VS: WildCard Development</CodesignProvision>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\carlogicon1.png" Color="#3388FF" BaseSize="64,64" />

@@ -91,30 +91,6 @@ namespace CarLog.ViewModels
 
         }
 
-        private async void ConfirmDelete()
-        {
-
-            bool TapConfirm = await Application.Current.MainPage.DisplayAlert("Delete Vehicle", 
-                "Are you sure you want to delete this vehicle?", "Yes, Delete", "No, Cancel");
-
-            if (TapConfirm)
-            {
-                await Application.Current.MainPage.DisplayAlert("Delete Vehicle",
-                    "Vehicle has been deleted.", "OK");
-
-                // Remove from Repository.
-            }
-
-        }
-
-
-        private async void LoadDataFromRepository()
-        {
-
-            /////[TEMP] await CLRepository.LoadDataAsync();
-
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string propertyname = null)
         {
